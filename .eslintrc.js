@@ -7,6 +7,7 @@ module.exports = {
     'react-hooks',
     'jsx-control-statements',
     'jest',
+    'import',
   ],
   extends: ['airbnb', 'prettier', 'plugin:jsx-control-statements/recommended'],
 };
