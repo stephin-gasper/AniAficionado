@@ -1,6 +1,8 @@
 module.exports = {
   root: true,
-  parser: '@babel/eslint-parser',
+  env: {
+    es6: true,
+  },
   plugins: [
     'react',
     'react-native',
@@ -10,4 +12,10 @@ module.exports = {
     'import',
   ],
   extends: ['airbnb', 'prettier', 'plugin:jsx-control-statements/recommended'],
+  parser: '@babel/eslint-parser',
+  parserOptions: {
+    sourceType: 'module',
+    jsx: true,
+    ecmaVersion: 2015,
+  },
 };
