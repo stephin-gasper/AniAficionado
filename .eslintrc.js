@@ -1,7 +1,25 @@
 module.exports = {
-  root: true,
   env: {
-    es6: true,
+    browser: true,
+    es2021: true,
+    jest: true,
+    'react-native/react-native': true,
+  },
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'airbnb/hooks',
+    'prettier',
+    'plugin:jest/recommended',
+    'plugin:jest/style',
+    'plugin:jsx-control-statements/recommended',
+  ],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
   plugins: [
     'react',
@@ -11,11 +29,14 @@ module.exports = {
     'jest',
     'import',
   ],
-  extends: ['airbnb', 'prettier', 'plugin:jsx-control-statements/recommended'],
-  parser: '@babel/eslint-parser',
-  parserOptions: {
-    sourceType: 'module',
-    jsx: true,
-    ecmaVersion: 2015,
+  rules: {
+    'react/jsx-filename-extension': [1, {extensions: ['.js', '.jsx']}],
+    'react/function-component-definition': [
+      2,
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
   },
 };
