@@ -41,8 +41,5 @@
     "jest-styled-components": "^7.0.8",
     "metro-react-native-babel-preset": "^0.66.2",
     "react-test-renderer": "^17.0.2"
-  },
-  "resolutions": {
-    "browserslist": ">=4.16.5"
   }
 }
