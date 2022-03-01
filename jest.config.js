@@ -4,6 +4,7 @@ module.exports = {
   preset: 'react-native',
   clearMocks: true,
   timers: 'fake',
+  setupFiles: ['./node_modules/react-native-gesture-handler/jestSetup.js'],
   setupFilesAfterEnv: ['./jest.setup.js', 'jest-extended/all'],
   moduleDirectories: ['node_modules', path.join(__dirname, 'src')],
   testPathIgnorePatterns: [
@@ -12,7 +13,7 @@ module.exports = {
     '<rootDir>/ios/',
   ],
   transformIgnorePatterns: [
-    '<rootDir>/node_modules/(?!(@react-native|react-native|@react-native-community)/).*/',
+    'node_modules/(?!(jest-)?@?react-native|@react-native-community|@react-navigation)',
   ],
   transform: {
     '^.+\\.(js|ts|tsx)$': [
