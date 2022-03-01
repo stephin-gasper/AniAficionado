@@ -1,26 +1,16 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-const styles = StyleSheet.create({
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-});
+import Home from './screens/home';
+
+const Stack = createNativeStackNavigator();
 
 const App = () => (
   <NavigationContainer>
-    <SafeAreaView>
-      <ScrollView contentInsetAdjustmentBehavior="automatic">
-        <View>
-          <Text style={[styles.sectionDescription]} testID="sampleTestId">
-            Sample text
-          </Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen name="Home" component={Home} />
+    </Stack.Navigator>
   </NavigationContainer>
 );
 
