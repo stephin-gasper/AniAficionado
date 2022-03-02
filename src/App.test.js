@@ -1,12 +1,14 @@
-import 'react-native';
 import React from 'react';
+import {View as MockView} from 'react-native';
 import {render} from '@testing-library/react-native';
 
 import App from './App';
 
+jest.mock('screens/home', () => () => <MockView testID="homeContainer" />);
+
 describe('tests for App', () => {
-  it('renders correctly', () => {
+  it('should render home screen', () => {
     const {getByTestId} = render(<App />);
-    expect(getByTestId('sampleTestId')).toBeDefined();
+    expect(getByTestId('homeContainer')).toBeDefined();
   });
 });
