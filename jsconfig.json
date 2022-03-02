@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "baseUrl": ".",
+    "paths": {
+      "screens/*": ["./src/screens/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

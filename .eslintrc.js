@@ -1,9 +1,18 @@
+const OFF = 0;
+const WARN = 1;
+const ERROR = 2;
+
 module.exports = {
   env: {
     browser: true,
     es2021: true,
     jest: true,
     'react-native/react-native': true,
+  },
+  settings: {
+    'import/resolver': {
+      'babel-module': {},
+    },
   },
   extends: [
     'plugin:react/recommended',
@@ -30,13 +39,14 @@ module.exports = {
     'import',
   ],
   rules: {
-    'react/jsx-filename-extension': [1, {extensions: ['.js', '.jsx']}],
+    'react/jsx-filename-extension': [WARN, {extensions: ['.js', '.jsx']}],
     'react/function-component-definition': [
-      2,
+      ERROR,
       {
         namedComponents: 'arrow-function',
         unnamedComponents: 'arrow-function',
       },
     ],
+    'comma-dangle': OFF,
   },
 };
