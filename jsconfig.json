@@ -3,7 +3,8 @@
     "target": "esnext",
     "baseUrl": ".",
     "paths": {
-      "screens/*": ["./src/screens/*"]
+      "screens/*": ["./src/screens/*"],
+      "api/*": ["./src/api/*"]
     }
   },
   "exclude": ["node_modules"]

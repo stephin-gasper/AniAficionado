@@ -8,6 +8,7 @@ module.exports = {
         root: ['./src/'],
         alias: {
           screens: './src/screens',
+          api: './src/api',
         },
         transformFunctions: [
           'require',
