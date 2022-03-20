@@ -61,3 +61,6 @@ buck-out/
 
 # vscode file history
 .history
+
+#vscode debugger
+.vscode/launch.json
