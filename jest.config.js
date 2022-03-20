@@ -3,7 +3,6 @@ const path = require('path');
 module.exports = {
   preset: 'react-native',
   clearMocks: true,
-  timers: 'fake',
   setupFiles: ['./node_modules/react-native-gesture-handler/jestSetup.js'],
   setupFilesAfterEnv: ['./jest.setup.js', 'jest-extended/all'],
   moduleDirectories: ['node_modules', path.join(__dirname, 'src')],
