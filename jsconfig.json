@@ -4,7 +4,8 @@
     "baseUrl": ".",
     "paths": {
       "screens/*": ["./src/screens/*"],
-      "api/*": ["./src/api/*"]
+      "api/*": ["./src/api/*"],
+      "services/*": ["./src/services/*"]
     }
   },
   "exclude": ["node_modules"]

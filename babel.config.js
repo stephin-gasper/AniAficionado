@@ -9,6 +9,7 @@ module.exports = {
         alias: {
           screens: './src/screens',
           api: './src/api',
+          services: './src/services',
         },
         transformFunctions: [
           'require',
