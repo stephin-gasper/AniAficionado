@@ -48,5 +48,6 @@ module.exports = {
       },
     ],
     'comma-dangle': OFF,
+    'react/jsx-props-no-spreading': OFF,
   },
 };
