@@ -64,3 +64,6 @@ buck-out/
 
 #vscode debugger
 .vscode/launch.json
+
+# Android assets
+android/app/src/main/assets/
