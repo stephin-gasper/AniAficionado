@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Cards /> should render correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {},
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {},
+      ]
+    }
+  >
+    <Image
+      source={
+        Object {
+          "uri": "https://www.sample-img.com",
+        }
+      }
+      style={
+        Array [
+          Object {},
+        ]
+      }
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Object {},
+      ]
+    }
+  >
+    Sample title
+  </Text>
+</View>
+`;
