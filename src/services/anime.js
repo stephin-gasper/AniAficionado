@@ -8,7 +8,7 @@ export const getLatestEpisodes = async ({page} = {}) => {
       id: episode.anime_id,
       title: episode.anime_title,
       imageUrl: episode.snapshot,
-      latestEpisode: episode.episode,
+      latestEpisodeNumber: episode.episode,
     }));
   return [];
 };
