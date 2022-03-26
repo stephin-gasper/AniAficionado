@@ -15,6 +15,7 @@ describe('tests for animePahe related apis', () => {
     expect(mockAxiosGet).toHaveBeenCalledTimes(1);
     expect(mockAxiosGet).toHaveBeenCalledWith(animePaheBaseUrl, {
       params: {m: 'airing', page: 1},
+      timeout: 60000,
     });
   });
 
@@ -28,6 +29,7 @@ describe('tests for animePahe related apis', () => {
     expect(mockAxiosGet).toHaveBeenCalledTimes(1);
     expect(mockAxiosGet).toHaveBeenCalledWith(animePaheBaseUrl, {
       params: {m: 'airing', page: 2},
+      timeout: 60000,
     });
   });
 });

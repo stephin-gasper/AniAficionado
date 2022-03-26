@@ -10,6 +10,7 @@ export const fetchLatestEpisodes = async ({page = 1} = {}) => {
         m: 'airing',
         page,
       },
+      timeout: 60000,
     });
 
     return data.data;
