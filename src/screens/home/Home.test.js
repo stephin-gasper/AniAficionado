@@ -37,6 +37,7 @@ describe('<Home />', () => {
     });
 
     expect(container).toMatchSnapshot();
+    expect(getLatestEpisodes).toHaveBeenCalledTimes(1);
   });
 
   it('should cancel interaction manager on unmount', async () => {
@@ -45,7 +46,7 @@ describe('<Home />', () => {
     const mockCancel = jest.fn();
     jest
       .spyOn(InteractionManager, 'runAfterInteractions')
-      .mockReturnValue({cancel: () => mockCancel()});
+      .mockReturnValueOnce({cancel: () => mockCancel()});
     let useFocusEffectCallbackInstance = jest.fn();
     await act(async () => {
       useFocusEffectCallbackInstance = mockUseFocusEffect.mock.calls[0][0]();
@@ -69,5 +70,19 @@ describe('<Home />', () => {
     expect(getByTestId('noResponseText').props.children).toBe(
       "No anime's to show, please retry",
     );
+    expect(getLatestEpisodes).toHaveBeenCalledTimes(1);
+  });
+
+  it('should loader text until api respond', async () => {
+    const {getByTestId, queryByTestId} = render(<Home />);
+
+    expect(getByTestId('loaderText').props.children).toBe('Loading...');
+
+    await act(async () => {
+      mockUseFocusEffect.mock.calls[0][0]();
+    });
+
+    expect(queryByTestId('loaderText')).toBeNull();
+    expect(getLatestEpisodes).toHaveBeenCalledTimes(1);
   });
 });

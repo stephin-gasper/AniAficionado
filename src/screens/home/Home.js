@@ -7,12 +7,14 @@ import Cards from './cards';
 
 const Home = () => {
   const [latestEpisodes, setLatestEpisodes] = useState([]);
+  const [showLoader, setShowLoader] = useState(true);
 
   useFocusEffect(
     useCallback(() => {
       const task = InteractionManager.runAfterInteractions(() => {
         getLatestEpisodes().then((data) => {
           setLatestEpisodes(data);
+          setShowLoader(false);
         });
       });
 
@@ -23,6 +25,9 @@ const Home = () => {
   return (
     <View>
       <Choose>
+        <When condition={showLoader}>
+          <Text testID="loaderText">Loading...</Text>
+        </When>
         <When condition={latestEpisodes.length > 0}>
           {latestEpisodes.map((episode) => (
             <Cards key={episode.id} {...episode} />
