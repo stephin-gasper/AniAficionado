@@ -28,6 +28,10 @@ The project is still in its infancy and will be adding further features later on
   - [ ] Implement functional base UI
   - [ ] Implement design
 
+### Possible features
+
+- [ ] Create iOS app
+
 ## Tech Stack
 
 - [React native](https://github.com/facebook/react-native)
