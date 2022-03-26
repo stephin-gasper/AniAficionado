@@ -19,9 +19,11 @@ jest.mock('./cards', () => (props) => (
 describe('<Home />', () => {
   it('should call api to get latest anime episodes', async () => {
     const {getAllByTestId} = render(<Home />);
+
     await act(async () => {
       mockUseFocusEffect.mock.calls[0][0]();
     });
+
     expect(getAllByTestId('animeCard')).toHaveLength(2);
     expect(getLatestEpisodes).toHaveBeenCalledTimes(1);
     expect(getLatestEpisodes).toHaveBeenCalledWith();
@@ -39,6 +41,7 @@ describe('<Home />', () => {
 
   it('should cancel interaction manager on unmount', async () => {
     render(<Home />);
+
     const mockCancel = jest.fn();
     jest
       .spyOn(InteractionManager, 'runAfterInteractions')
@@ -47,10 +50,24 @@ describe('<Home />', () => {
     await act(async () => {
       useFocusEffectCallbackInstance = mockUseFocusEffect.mock.calls[0][0]();
     });
+
     await act(async () => {
       useFocusEffectCallbackInstance();
     });
 
     expect(mockCancel).toHaveBeenCalledTimes(1);
+  });
+
+  it('should some text when api return empty response', async () => {
+    const {getByTestId} = render(<Home />);
+
+    getLatestEpisodes.mockResolvedValueOnce([]);
+    await act(async () => {
+      mockUseFocusEffect.mock.calls[0][0]();
+    });
+
+    expect(getByTestId('noResponseText').props.children).toBe(
+      "No anime's to show, please retry",
+    );
   });
 });
