@@ -1,6 +1,6 @@
 # AniAficionado
 
-A simple app for all anime aficionado's. It's an unofficial app for [animepahe](https://animepahe.com/) to stream your favorite anime.
+A simple app for all anime aficionado's. It's an unofficial app for animepahe to stream your favorite anime.
 
 The project is still in its infancy and will be adding further features later on, you can check the roadmap below for future plans.
 
