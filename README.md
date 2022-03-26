@@ -55,3 +55,9 @@ The project is still in its infancy and will be adding further features later on
 
 - [ ] Integrate [Jotai](https://github.com/pmndrs/jotai)
 - [ ] Integrate [TypeScript](https://github.com/microsoft/TypeScript)
+
+## How to run the app
+
+- Setup react native by following this link: https://reactnative.dev/docs/environment-setup
+- Run following commands in terminal - 'yarn start' and then 'yarn android' in another terminal.
+- You can check the sample debug apk in following link - https://appsenjoy.com/PJZhM
