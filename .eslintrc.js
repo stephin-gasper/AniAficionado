@@ -49,5 +49,6 @@ module.exports = {
     ],
     'comma-dangle': OFF,
     'react/jsx-props-no-spreading': OFF,
+    'react/jsx-no-undef': [ERROR, {allowGlobals: true}],
   },
 };
