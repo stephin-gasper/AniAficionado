@@ -21,11 +21,8 @@ exports[`<Cards /> should render correctly 1`] = `
           "uri": "https://www.sample-img.com",
         }
       }
-      style={
-        Array [
-          Object {},
-        ]
-      }
+      testID="featuredImage"
+      width={750}
     />
   </View>
   <Text
