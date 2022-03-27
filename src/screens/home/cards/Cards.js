@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Dimensions, Image} from 'react-native';
-// import Image from 'react-native-scalable-image';
+import {Dimensions} from 'react-native';
+import Image from 'react-native-scalable-image';
 
 import {FeaturedImageWrapper, Title, Wrapper} from './Cards.style';
 
