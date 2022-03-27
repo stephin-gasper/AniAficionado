@@ -21,7 +21,7 @@ describe('<Cards />', () => {
 
     const mockDimensionGet = jest
       .spyOn(Dimensions, 'get')
-      .mockReturnValue({width: 414});
+      .mockReturnValueOnce({width: 414});
     update(<Cards {...defaultProps} />);
 
     expect(getByTestId('featuredImage').props.width).toBe(414);
