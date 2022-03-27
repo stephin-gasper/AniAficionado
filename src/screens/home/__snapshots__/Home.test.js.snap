@@ -2,19 +2,65 @@
 
 exports[`<Home /> should render correctly 1`] = `
 <View>
-  <View
-    id={4667}
-    imageUrl="https://i.animepahe.com/snapshots/kenja-no-deshi-wo-nanoru-kenja.jpg"
-    latestEpisodeNumber={9}
-    testID="animeCard"
-    title="Kenja no Deshi wo Nanoru Kenja"
-  />
-  <View
-    id={4664}
-    imageUrl="https://i.animepahe.com/snapshots/the-genius-princes-guide-to-raising-a-nation-out-of-debt.jpg"
-    latestEpisodeNumber={9}
-    testID="animeCard"
-    title="Tensai Ouji no Akaji Kokka Saisei Jutsu"
-  />
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "id": 4667,
+          "imageUrl": "https://i.animepahe.com/snapshots/kenja-no-deshi-wo-nanoru-kenja.jpg",
+          "latestEpisodeNumber": 9,
+          "title": "Kenja no Deshi wo Nanoru Kenja",
+        },
+        Object {
+          "id": 4664,
+          "imageUrl": "https://i.animepahe.com/snapshots/the-genius-princes-guide-to-raising-a-nation-out-of-debt.jpg",
+          "latestEpisodeNumber": 9,
+          "title": "Tensai Ouji no Akaji Kokka Saisei Jutsu",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    keyExtractor={[Function]}
+    onContentSizeChange={[Function]}
+    onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    viewabilityConfigCallbackPairs={Array []}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          id={4667}
+          imageUrl="https://i.animepahe.com/snapshots/kenja-no-deshi-wo-nanoru-kenja.jpg"
+          latestEpisodeNumber={9}
+          testID="animeCard"
+          title="Kenja no Deshi wo Nanoru Kenja"
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          id={4664}
+          imageUrl="https://i.animepahe.com/snapshots/the-genius-princes-guide-to-raising-a-nation-out-of-debt.jpg"
+          latestEpisodeNumber={9}
+          testID="animeCard"
+          title="Tensai Ouji no Akaji Kokka Saisei Jutsu"
+        />
+      </View>
+    </View>
+  </RCTScrollView>
 </View>
 `;

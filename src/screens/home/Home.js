@@ -1,5 +1,5 @@
 import React, {useCallback, useState} from 'react';
-import {View, InteractionManager, Text} from 'react-native';
+import {FlatList, View, InteractionManager, Text} from 'react-native';
 import {getLatestEpisodes} from 'services/anime';
 import {useFocusEffect} from '@react-navigation/native';
 
@@ -22,6 +22,8 @@ const Home = () => {
     }, []),
   );
 
+  const renderItem = ({item}) => <Cards {...item} />;
+
   return (
     <View>
       <Choose>
@@ -29,9 +31,11 @@ const Home = () => {
           <Text testID="loaderText">Loading...</Text>
         </When>
         <When condition={latestEpisodes.length > 0}>
-          {latestEpisodes.map((episode) => (
-            <Cards key={episode.id} {...episode} />
-          ))}
+          <FlatList
+            data={latestEpisodes}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id}
+          />
         </When>
         <Otherwise>
           <Text testID="noResponseText">
