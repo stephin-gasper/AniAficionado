@@ -19,5 +19,8 @@ module.exports = {
       'babel-jest',
       {configFile: require.resolve('./babel.config.js')},
     ],
+    '^.+\\.(bmp|gif|jpg|jpeg|mp4|png|psd|svg|webp)$': require.resolve(
+      './node_modules/react-native/jest/assetFileTransformer.js',
+    ),
   },
 };
