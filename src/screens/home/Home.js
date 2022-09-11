@@ -1,9 +1,10 @@
 import React, {useCallback, useState} from 'react';
-import {FlatList, View, InteractionManager, Text} from 'react-native';
+import {InteractionManager, Text, ScrollView} from 'react-native';
 import {getLatestEpisodes} from 'services/anime';
 import {useFocusEffect} from '@react-navigation/native';
 
 import Cards from './cards';
+import {Container} from './Home.style';
 
 const Home = () => {
   const [latestEpisodes, setLatestEpisodes] = useState([]);
@@ -22,28 +23,30 @@ const Home = () => {
     }, []),
   );
 
-  const renderItem = ({item}) => <Cards {...item} />;
-
   return (
-    <View>
-      <Choose>
-        <When condition={showLoader}>
-          <Text testID="loaderText">Loading...</Text>
-        </When>
-        <When condition={latestEpisodes.length > 0}>
-          <FlatList
-            data={latestEpisodes}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id}
-          />
-        </When>
-        <Otherwise>
-          <Text testID="noResponseText">
-            No anime&apos;s to show, please retry
-          </Text>
-        </Otherwise>
-      </Choose>
-    </View>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      keyboardShouldPersistTaps="handled"
+      alwaysBounceVertical="false"
+      bounces="false">
+      <Container>
+        <Choose>
+          <When condition={showLoader}>
+            <Text testID="loaderText">Loading...</Text>
+          </When>
+          <When condition={latestEpisodes.length > 0}>
+            <For each="item" of={latestEpisodes}>
+              <Cards key={item.id} {...item} />
+            </For>
+          </When>
+          <Otherwise>
+            <Text testID="noResponseText">
+              No anime&apos;s to show, please retry
+            </Text>
+          </Otherwise>
+        </Choose>
+      </Container>
+    </ScrollView>
   );
 };
 
