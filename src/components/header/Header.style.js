@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const HeaderWrapper = styled.View`
-  background-color: #1e2226;
+  background-color: ${(props) => props.theme.primaryColor};
   padding: 0 20px 10px;
 `;
 

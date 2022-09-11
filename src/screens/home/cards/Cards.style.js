@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import {StyleSheet} from 'react-native';
 
 export const Wrapper = styled.View`
-  background-color: #d62839;
+  background-color: ${(props) => props.theme.secondaryColor};
   margin-bottom: 20px;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
@@ -16,7 +16,7 @@ export const FeaturedImageWrapper = styled.View`
 `;
 
 export const Title = styled.Text`
-  color: #fffade;
+  color: ${(props) => props.theme.textColor};
   font-size: 14px;
   font-weight: 600;
   padding: 10px 10px 20px;
