@@ -5,7 +5,7 @@ import {ThemeProvider} from 'styled-components/native';
 
 import Home from 'screens/home';
 import theme from 'constants/theme';
-import Header from './components/header';
+import Header from 'components/header';
 
 const Stack = createNativeStackNavigator();
 

@@ -6,7 +6,8 @@
       "screens/*": ["./src/screens/*"],
       "api/*": ["./src/api/*"],
       "services/*": ["./src/services/*"],
-      "constants/*": ["./src/constants/*"]
+      "constants/*": ["./src/constants/*"],
+      "components/*": ["./src/components/*"]
     }
   },
   "exclude": ["node_modules"]
