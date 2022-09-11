@@ -1,66 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Home /> should render correctly 1`] = `
-<View>
-  <RCTScrollView
-    data={
-      Array [
-        Object {
-          "id": 4667,
-          "imageUrl": "https://i.animepahe.com/snapshots/kenja-no-deshi-wo-nanoru-kenja.jpg",
-          "latestEpisodeNumber": 9,
-          "title": "Kenja no Deshi wo Nanoru Kenja",
-        },
-        Object {
-          "id": 4664,
-          "imageUrl": "https://i.animepahe.com/snapshots/the-genius-princes-guide-to-raising-a-nation-out-of-debt.jpg",
-          "latestEpisodeNumber": 9,
-          "title": "Tensai Ouji no Akaji Kokka Saisei Jutsu",
-        },
-      ]
-    }
-    getItem={[Function]}
-    getItemCount={[Function]}
-    keyExtractor={[Function]}
-    onContentSizeChange={[Function]}
-    onLayout={[Function]}
-    onMomentumScrollBegin={[Function]}
-    onMomentumScrollEnd={[Function]}
-    onScroll={[Function]}
-    onScrollBeginDrag={[Function]}
-    onScrollEndDrag={[Function]}
-    removeClippedSubviews={false}
-    renderItem={[Function]}
-    scrollEventThrottle={50}
-    stickyHeaderIndices={Array []}
-    viewabilityConfigCallbackPairs={Array []}
-  >
-    <View>
+<RCTScrollView
+  alwaysBounceVertical="false"
+  bounces="false"
+  keyboardShouldPersistTaps="handled"
+  showsVerticalScrollIndicator={false}
+>
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#1e2226",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "paddingBottom": 0,
+            "paddingLeft": 20,
+            "paddingRight": 20,
+            "paddingTop": 5,
+          },
+        ]
+      }
+    >
       <View
-        onLayout={[Function]}
-        style={null}
-      >
-        <View
-          id={4667}
-          imageUrl="https://i.animepahe.com/snapshots/kenja-no-deshi-wo-nanoru-kenja.jpg"
-          latestEpisodeNumber={9}
-          testID="animeCard"
-          title="Kenja no Deshi wo Nanoru Kenja"
-        />
-      </View>
+        id={4667}
+        imageUrl="https://i.animepahe.com/snapshots/kenja-no-deshi-wo-nanoru-kenja.jpg"
+        latestEpisodeNumber={9}
+        testID="animeCard"
+        title="Kenja no Deshi wo Nanoru Kenja"
+      />
       <View
-        onLayout={[Function]}
-        style={null}
-      >
-        <View
-          id={4664}
-          imageUrl="https://i.animepahe.com/snapshots/the-genius-princes-guide-to-raising-a-nation-out-of-debt.jpg"
-          latestEpisodeNumber={9}
-          testID="animeCard"
-          title="Tensai Ouji no Akaji Kokka Saisei Jutsu"
-        />
-      </View>
+        id={4664}
+        imageUrl="https://i.animepahe.com/snapshots/the-genius-princes-guide-to-raising-a-nation-out-of-debt.jpg"
+        latestEpisodeNumber={9}
+        testID="animeCard"
+        title="Tensai Ouji no Akaji Kokka Saisei Jutsu"
+      />
     </View>
-  </RCTScrollView>
-</View>
+  </View>
+</RCTScrollView>
 `;

@@ -4,14 +4,24 @@ exports[`<Cards /> should render correctly 1`] = `
 <View
   style={
     Array [
-      Object {},
+      Object {
+        "backgroundColor": "#d62839",
+        "borderBottomLeftRadius": 5,
+        "borderBottomRightRadius": 5,
+        "borderTopLeftRadius": 7,
+        "borderTopRightRadius": 7,
+        "marginBottom": 20,
+      },
     ]
   }
 >
   <View
     style={
       Array [
-        Object {},
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "center",
+        },
       ]
     }
   >
@@ -21,14 +31,29 @@ exports[`<Cards /> should render correctly 1`] = `
           "uri": "https://www.sample-img.com",
         }
       }
+      style={
+        Object {
+          "borderTopLeftRadius": 5,
+          "borderTopRightRadius": 5,
+          "resizeMode": "contain",
+        }
+      }
       testID="featuredImage"
-      width={750}
+      width={710}
     />
   </View>
   <Text
     style={
       Array [
-        Object {},
+        Object {
+          "color": "#fffade",
+          "fontSize": 14,
+          "fontWeight": "600",
+          "paddingBottom": 20,
+          "paddingLeft": 10,
+          "paddingRight": 10,
+          "paddingTop": 10,
+        },
       ]
     }
   >

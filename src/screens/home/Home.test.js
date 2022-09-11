@@ -1,6 +1,6 @@
 import {View as MockView, InteractionManager} from 'react-native';
 import React from 'react';
-import {render, act} from '@testing-library/react-native';
+import {render, act} from 'test/test-utils';
 import {getLatestEpisodes} from 'services/anime';
 
 import Home from './Home';
