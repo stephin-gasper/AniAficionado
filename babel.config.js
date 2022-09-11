@@ -10,6 +10,7 @@ module.exports = {
           screens: './src/screens',
           api: './src/api',
           services: './src/services',
+          constants: './src/constants',
         },
       },
     ],
