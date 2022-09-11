@@ -41,6 +41,40 @@ exports[`<Cards /> should render correctly 1`] = `
       testID="featuredImage"
       width={710}
     />
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#1e2226",
+            "borderTopLeftRadius": 5,
+            "borderTopRightRadius": 5,
+            "bottom": 0,
+            "left": 0,
+            "opacity": 0.3,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          },
+        ]
+      }
+    />
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#fffade",
+            "fontSize": 18,
+            "fontWeight": "600",
+            "position": "absolute",
+            "right": 10,
+            "top": 10,
+          },
+        ]
+      }
+    >
+      #
+      2
+    </Text>
   </View>
   <Text
     style={

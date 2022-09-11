@@ -3,9 +3,16 @@ import PropTypes from 'prop-types';
 import {Dimensions} from 'react-native';
 import Image from 'react-native-scalable-image';
 
-import {FeaturedImageWrapper, styles, Title, Wrapper} from './Cards.style';
+import {
+  EpisodeNumber,
+  FeaturedImageOverlay,
+  FeaturedImageWrapper,
+  styles,
+  Title,
+  Wrapper,
+} from './Cards.style';
 
-const Cards = ({imageUrl, title}) => (
+const Cards = ({imageUrl, title, latestEpisodeNumber}) => (
   <Wrapper>
     <FeaturedImageWrapper>
       <Image
@@ -16,6 +23,8 @@ const Cards = ({imageUrl, title}) => (
         style={styles.image}
         testID="featuredImage"
       />
+      <FeaturedImageOverlay />
+      <EpisodeNumber>#{latestEpisodeNumber}</EpisodeNumber>
     </FeaturedImageWrapper>
     <Title>{title}</Title>
   </Wrapper>
@@ -24,6 +33,7 @@ const Cards = ({imageUrl, title}) => (
 Cards.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  latestEpisodeNumber: PropTypes.number.isRequired,
 };
 
 export default Cards;

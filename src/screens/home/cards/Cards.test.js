@@ -8,6 +8,7 @@ describe('<Cards />', () => {
   const defaultProps = {
     imageUrl: 'https://www.sample-img.com',
     title: 'Sample title',
+    latestEpisodeNumber: 2,
   };
 
   it('should render correctly', () => {

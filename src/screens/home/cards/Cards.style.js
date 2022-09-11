@@ -15,6 +15,27 @@ export const FeaturedImageWrapper = styled.View`
   justify-content: center;
 `;
 
+export const FeaturedImageOverlay = styled.View`
+  background-color: ${(props) => props.theme.primaryColor};
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  opacity: 0.3;
+`;
+
+export const EpisodeNumber = styled.Text`
+  color: ${(props) => props.theme.textColor};
+  font-size: 18px;
+  font-weight: 600;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+`;
+
 export const Title = styled.Text`
   color: ${(props) => props.theme.textColor};
   font-size: 14px;
