@@ -3,16 +3,17 @@ import PropTypes from 'prop-types';
 import {Dimensions} from 'react-native';
 import Image from 'react-native-scalable-image';
 
-import {FeaturedImageWrapper, Title, Wrapper} from './Cards.style';
+import {FeaturedImageWrapper, styles, Title, Wrapper} from './Cards.style';
 
 const Cards = ({imageUrl, title}) => (
   <Wrapper>
     <FeaturedImageWrapper>
       <Image
-        width={Dimensions.get('window').width}
+        width={Dimensions.get('window').width - 40}
         source={{
           uri: imageUrl,
         }}
+        style={styles.image}
         testID="featuredImage"
       />
     </FeaturedImageWrapper>
