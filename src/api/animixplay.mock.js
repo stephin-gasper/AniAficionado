@@ -69,26 +69,6 @@ export const ANIMIXPLAY_HOMEPAGE_HTML_RESPONSE = {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/v1/digimon-ghost-game/ep43"
-                    title="Digimon Ghost Game"
-                  >
-                    <div class="searchimg">
-                      <img
-                        class="resultimg"
-                        alt=""
-                        src="https://cdn.animixplay.to/i/4d3c06fd92a356d5b587e602692e5ce6.jpg"
-                      />
-                      <div class="timetext">2022-09-18 02:40:03</div>
-                      <div class="rating">693</div>
-                    </div>
-                    <div class="details">
-                      <p class="name">Digimon Ghost Game</p>
-                      <p class="infotext">EP 43/?</p>
-                    </div>
-                  </a>
-                </li>
-                <li>
                   <a href="/v1/one-piece/ep1033" title="One Piece">
                     <div class="searchimg">
                       <img
@@ -102,6 +82,26 @@ export const ANIMIXPLAY_HOMEPAGE_HTML_RESPONSE = {
                     <div class="details">
                       <p class="name">One Piece</p>
                       <p class="infotext">EP 1033/?</p>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/v1/kakkou-no-iinazuke/ep21"
+                    title="A Couple of Cuckoos"
+                  >
+                    <div class="searchimg">
+                      <img
+                        class="resultimg"
+                        alt=""
+                        src="https://cdn.animixplay.to/i/41adf097b26cf486c64da6ada76adac2.jpg"
+                      />
+                      <div class="timetext">2022-09-17 17:15:04</div>
+                      <div class="rating">721</div>
+                    </div>
+                    <div class="details">
+                      <p class="name">A Couple of Cuckoos</p>
+                      <p class="infotext">EP 21/24</p>
                     </div>
                   </a>
                 </li>
