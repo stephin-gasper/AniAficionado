@@ -2,6 +2,7 @@ module.exports = {
   presets: ['module:metro-react-native-babel-preset'],
   plugins: [
     'jsx-control-statements',
+    '@babel/plugin-transform-named-capturing-groups-regex',
     [
       'module-resolver',
       {
