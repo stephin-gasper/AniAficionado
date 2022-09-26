@@ -5,6 +5,4 @@ import 'jest-styled-components/native';
 
 jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 
-jest.mock('react-native-scalable-image', () => (props) => (
-  <MockImage {...props} />
-));
+jest.mock('react-native-fast-image', () => props => <MockImage {...props} />);
