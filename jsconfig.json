@@ -8,7 +8,9 @@
       "services/*": ["./src/services/*"],
       "constants/*": ["./src/constants/*"],
       "components/*": ["./src/components/*"],
-      "test/*": ["./src/test/*"]
+      "test/*": ["./src/test/*"],
+      "assets/*": ["./src/assets/*"],
+      "utils/*": ["./src/utils/*"]
     }
   },
   "exclude": ["node_modules"]

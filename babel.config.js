@@ -14,6 +14,8 @@ module.exports = {
           constants: './src/constants',
           components: './src/components',
           test: './src/test',
+          assets: './src/assets',
+          utils: './src/utils',
         },
       },
     ],
