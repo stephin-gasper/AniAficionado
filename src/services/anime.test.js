@@ -3,15 +3,21 @@ import {fetchHomepageHtml} from 'api/animixplay';
 import {ANIMIXPLAY_HOMEPAGE_HTML_RESPONSE} from 'api/animixplay.mock';
 
 import {getInitialLatestSubbedEpisodes} from './anime';
-import {GET_INITIAL_LATEST_SUBBED_EPISODES_RESPONSE} from './anime.mock';
+import {INITIAL_LATEST_SUBBED_EPISODES_RESPONSE} from './anime.mock';
 
 jest.mock('api/animixplay');
 
 describe('tests for anime related functions', () => {
+  beforeAll(() => {
+    jest
+      .spyOn(Date, 'now')
+      .mockReturnValue(Number(new Date('2022-09-19 00:00:00')));
+  });
+
   it('should make homepage html call and return initial subbed episodes list', async () => {
     const loadSpy = jest.spyOn(cheerio, 'load');
     await expect(getInitialLatestSubbedEpisodes()).resolves.toStrictEqual(
-      GET_INITIAL_LATEST_SUBBED_EPISODES_RESPONSE,
+      INITIAL_LATEST_SUBBED_EPISODES_RESPONSE,
     );
     expect(fetchHomepageHtml).toHaveBeenCalledTimes(1);
     expect(loadSpy).toHaveBeenCalledTimes(1);

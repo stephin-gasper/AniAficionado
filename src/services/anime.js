@@ -1,5 +1,6 @@
 import * as cheerio from 'cheerio';
 import {fetchHomepageHtml} from 'api/animixplay';
+import formatDateToTimeAgo from 'utils/formatDateToTimeAgo';
 
 // eslint-disable-next-line import/prefer-default-export
 export const getInitialLatestSubbedEpisodes = async () => {
@@ -23,7 +24,9 @@ export const getInitialLatestSubbedEpisodes = async () => {
           imageUrl: $(el).find('.resultimg').attr('src'),
           latestEpisodeNumber: episodeText.number,
           totalEpisodes: episodeText.total,
-          releaseTime: $(el).find('.timetext').text(),
+          releaseTime: formatDateToTimeAgo(
+            new Date($(el).find('.timetext').text()),
+          ),
         };
       });
     }
