@@ -1,10 +1,10 @@
 import React, {useCallback, useState} from 'react';
 import {InteractionManager, Text, ScrollView} from 'react-native';
-import {getLatestEpisodes} from 'services/anime';
 import {useFocusEffect} from '@react-navigation/native';
+import {getInitialLatestSubbedEpisodes} from 'services/anime';
 
 import Cards from './cards';
-import {Container} from './Home.style';
+import {CardWrapper, Container} from './Home.style';
 
 const Home = () => {
   const [latestEpisodes, setLatestEpisodes] = useState([]);
@@ -13,7 +13,7 @@ const Home = () => {
   useFocusEffect(
     useCallback(() => {
       const task = InteractionManager.runAfterInteractions(() => {
-        getLatestEpisodes().then((data) => {
+        getInitialLatestSubbedEpisodes().then(data => {
           setLatestEpisodes(data);
           setShowLoader(false);
         });
@@ -24,20 +24,18 @@ const Home = () => {
   );
 
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      keyboardShouldPersistTaps="handled"
-      alwaysBounceVertical="false"
-      bounces="false">
-      <Container>
+    <Container>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Choose>
           <When condition={showLoader}>
             <Text testID="loaderText">Loading...</Text>
           </When>
           <When condition={latestEpisodes.length > 0}>
-            <For each="item" of={latestEpisodes}>
-              <Cards key={item.id} {...item} />
-            </For>
+            <CardWrapper>
+              <For each="item" of={latestEpisodes}>
+                <Cards key={item.id} {...item} />
+              </For>
+            </CardWrapper>
           </When>
           <Otherwise>
             <Text testID="noResponseText">
@@ -45,8 +43,8 @@ const Home = () => {
             </Text>
           </Otherwise>
         </Choose>
-      </Container>
-    </ScrollView>
+      </ScrollView>
+    </Container>
   );
 };
 

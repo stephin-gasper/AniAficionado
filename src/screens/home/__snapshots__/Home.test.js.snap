@@ -1,44 +1,72 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Home /> should render correctly 1`] = `
-<RCTScrollView
-  alwaysBounceVertical="false"
-  bounces="false"
-  keyboardShouldPersistTaps="handled"
-  showsVerticalScrollIndicator={false}
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#6a5498",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "paddingBottom": 0,
+        "paddingLeft": 10,
+        "paddingRight": 10,
+        "paddingTop": 5,
+      },
+    ]
+  }
 >
-  <View>
-    <View
-      style={
-        Array [
-          Object {
-            "backgroundColor": "#1e2226",
-            "flexBasis": 0,
-            "flexGrow": 1,
-            "flexShrink": 1,
-            "paddingBottom": 0,
-            "paddingLeft": 20,
-            "paddingRight": 20,
-            "paddingTop": 5,
-          },
-        ]
-      }
-    >
+  <RCTScrollView
+    showsVerticalScrollIndicator={false}
+  >
+    <View>
       <View
-        id={4667}
-        imageUrl="https://i.animepahe.com/snapshots/kenja-no-deshi-wo-nanoru-kenja.jpg"
-        latestEpisodeNumber={9}
-        testID="animeCard"
-        title="Kenja no Deshi wo Nanoru Kenja"
-      />
-      <View
-        id={4664}
-        imageUrl="https://i.animepahe.com/snapshots/the-genius-princes-guide-to-raising-a-nation-out-of-debt.jpg"
-        latestEpisodeNumber={9}
-        testID="animeCard"
-        title="Tensai Ouji no Akaji Kokka Saisei Jutsu"
-      />
+        style={
+          [
+            {
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "marginBottom": 0,
+              "marginLeft": -2.5,
+              "marginRight": -2.5,
+              "marginTop": 0,
+            },
+          ]
+        }
+      >
+        <View
+          id="/v1/boruto-naruto-next-generations/ep267"
+          imageUrl="https://cdn.animixplay.to/i/2b749c9e3e272f2cf4b4f019ffe6c252.jpg"
+          latestEpisodeNumber="267"
+          rating="5.78"
+          releaseTime="14 hours ago"
+          testID="animeCard"
+          title="Boruto: Naruto Next Generations"
+          totalEpisodes="?"
+        />
+        <View
+          id="/v1/one-piece/ep1033"
+          imageUrl="https://cdn.animixplay.to/i/73059c39fee46b7c378a3aa0bdd9b6a2.jpg"
+          latestEpisodeNumber="1033"
+          rating="8.67"
+          releaseTime="21 hours ago"
+          testID="animeCard"
+          title="One Piece"
+          totalEpisodes="?"
+        />
+        <View
+          id="/v1/kakkou-no-iinazuke/ep21"
+          imageUrl="https://cdn.animixplay.to/i/41adf097b26cf486c64da6ada76adac2.jpg"
+          latestEpisodeNumber="21"
+          rating="?"
+          releaseTime="1 day ago"
+          testID="animeCard"
+          title="A Couple of Cuckoos"
+          totalEpisodes="24"
+        />
+      </View>
     </View>
-  </View>
-</RCTScrollView>
+  </RCTScrollView>
+</View>
 `;

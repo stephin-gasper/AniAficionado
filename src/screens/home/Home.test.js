@@ -1,20 +1,18 @@
 import {View as MockView, InteractionManager} from 'react-native';
 import React from 'react';
 import {render, act} from 'test/test-utils';
-import {getLatestEpisodes} from 'services/anime';
+import {getInitialLatestSubbedEpisodes} from 'services/anime';
 
 import Home from './Home';
 
 const mockUseFocusEffect = jest.fn();
 jest.mock('@react-navigation/native', () => ({
-  useFocusEffect: (params) => mockUseFocusEffect(params),
+  useFocusEffect: params => mockUseFocusEffect(params),
 }));
 
 jest.mock('services/anime');
 
-jest.mock('./cards', () => (props) => (
-  <MockView testID="animeCard" {...props} />
-));
+jest.mock('./cards', () => props => <MockView testID="animeCard" {...props} />);
 
 describe('<Home />', () => {
   it('should call api to get latest anime episodes', async () => {
@@ -24,9 +22,9 @@ describe('<Home />', () => {
       mockUseFocusEffect.mock.calls[0][0]();
     });
 
-    expect(getAllByTestId('animeCard')).toHaveLength(2);
-    expect(getLatestEpisodes).toHaveBeenCalledTimes(1);
-    expect(getLatestEpisodes).toHaveBeenCalledWith();
+    expect(getAllByTestId('animeCard')).toHaveLength(3);
+    expect(getInitialLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
+    expect(getInitialLatestSubbedEpisodes).toHaveBeenCalledWith();
   });
 
   it('should render correctly', async () => {
@@ -37,7 +35,7 @@ describe('<Home />', () => {
     });
 
     expect(container).toMatchSnapshot();
-    expect(getLatestEpisodes).toHaveBeenCalledTimes(1);
+    expect(getInitialLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
   });
 
   it('should cancel interaction manager on unmount', async () => {
@@ -62,7 +60,7 @@ describe('<Home />', () => {
   it('should some text when api return empty response', async () => {
     const {getByTestId} = render(<Home />);
 
-    getLatestEpisodes.mockResolvedValueOnce([]);
+    getInitialLatestSubbedEpisodes.mockResolvedValueOnce([]);
     await act(async () => {
       mockUseFocusEffect.mock.calls[0][0]();
     });
@@ -70,7 +68,7 @@ describe('<Home />', () => {
     expect(getByTestId('noResponseText').props.children).toBe(
       "No anime's to show, please retry",
     );
-    expect(getLatestEpisodes).toHaveBeenCalledTimes(1);
+    expect(getInitialLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
   });
 
   it('should loader text until api respond', async () => {
@@ -83,6 +81,6 @@ describe('<Home />', () => {
     });
 
     expect(queryByTestId('loaderText')).toBeNull();
-    expect(getLatestEpisodes).toHaveBeenCalledTimes(1);
+    expect(getInitialLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
   });
 });
