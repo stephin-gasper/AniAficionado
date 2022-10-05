@@ -14,10 +14,6 @@ describe('tests for anime related functions', () => {
       .mockReturnValue(Number(new Date('2022-09-19 00:00:00')));
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-
   it('should make homepage html call and return initial subbed episodes list', async () => {
     const loadSpy = jest.spyOn(cheerio, 'load');
     await expect(getInitialLatestSubbedEpisodes()).resolves.toStrictEqual(

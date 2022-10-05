@@ -7,10 +7,6 @@ describe('tests for formatDateToTimeAgo', () => {
       .mockReturnValue(Number(new Date('2022-09-30 00:00:00')));
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-
   it('should return Just now when calculated seconds is 0', () => {
     expect(formatDateToTimeAgo(new Date('2022-09-30 00:00:00'))).toBe(
       'Just now',

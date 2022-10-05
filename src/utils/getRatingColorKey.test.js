@@ -11,10 +11,6 @@ describe('tests for getRatingColorKey', () => {
     UNRATED: 'unrated',
   };
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-
   it('should return unrated when rating is ?', () => {
     expect(getRatingColorKey('?')).toBe(ratingScaleKeys.UNRATED);
   });
