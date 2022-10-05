@@ -1,5 +1,5 @@
-import {GET_LATEST_EPISODES_RESPONSE} from 'services/anime.mock';
+import {INITIAL_LATEST_SUBBED_EPISODES_RESPONSE} from 'services/anime.mock';
 
-export const getLatestEpisodes = jest.fn(() =>
-  Promise.resolve(GET_LATEST_EPISODES_RESPONSE),
+export const getInitialLatestSubbedEpisodes = jest.fn(() =>
+  Promise.resolve(INITIAL_LATEST_SUBBED_EPISODES_RESPONSE),
 );
