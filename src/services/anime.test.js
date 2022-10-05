@@ -14,6 +14,10 @@ describe('tests for anime related functions', () => {
       .mockReturnValue(Number(new Date('2022-09-19 00:00:00')));
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('should make homepage html call and return initial subbed episodes list', async () => {
     const loadSpy = jest.spyOn(cheerio, 'load');
     await expect(getInitialLatestSubbedEpisodes()).resolves.toStrictEqual(
@@ -27,5 +31,14 @@ describe('tests for anime related functions', () => {
         _useHtmlParser2: true,
       },
     );
+  });
+
+  it('should make homepage html call and return empty list when api call fails', async () => {
+    const loadSpy = jest.spyOn(cheerio, 'load');
+    fetchHomepageHtml.mockRejectedValueOnce(new Error('error'));
+    await expect(getInitialLatestSubbedEpisodes()).resolves.toStrictEqual([]);
+
+    expect(fetchHomepageHtml).toHaveBeenCalledTimes(1);
+    expect(loadSpy).toHaveBeenCalledTimes(0);
   });
 });

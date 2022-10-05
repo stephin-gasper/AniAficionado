@@ -8,6 +8,7 @@ export const INITIAL_LATEST_SUBBED_EPISODES_RESPONSE = [
     releaseTime: '14 hours ago',
     title: 'Boruto: Naruto Next Generations',
     totalEpisodes: '?',
+    rating: '5.78',
   },
   {
     id: '/v1/one-piece/ep1033',
@@ -17,6 +18,7 @@ export const INITIAL_LATEST_SUBBED_EPISODES_RESPONSE = [
     releaseTime: '21 hours ago',
     title: 'One Piece',
     totalEpisodes: '?',
+    rating: '8.67',
   },
   {
     id: '/v1/kakkou-no-iinazuke/ep21',
@@ -26,5 +28,6 @@ export const INITIAL_LATEST_SUBBED_EPISODES_RESPONSE = [
     releaseTime: '1 day ago',
     title: 'A Couple of Cuckoos',
     totalEpisodes: '24',
+    rating: '?',
   },
 ];

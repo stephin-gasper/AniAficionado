@@ -2,6 +2,12 @@ import * as cheerio from 'cheerio';
 import {fetchHomepageHtml} from 'api/animixplay';
 import formatDateToTimeAgo from 'utils/formatDateToTimeAgo';
 
+const getRatingText = text => {
+  if (Number(text) === 0) return '?';
+  const result = text.match(/(?<first>\d)(?<rest>\d+)/).groups;
+  return `${result.first}.${result.rest}`;
+};
+
 // eslint-disable-next-line import/prefer-default-export
 export const getInitialLatestSubbedEpisodes = async () => {
   let list = [];
@@ -27,6 +33,7 @@ export const getInitialLatestSubbedEpisodes = async () => {
           releaseTime: formatDateToTimeAgo(
             new Date($(el).find('.timetext').text()),
           ),
+          rating: getRatingText($(el).find('.rating').text()),
         };
       });
     }

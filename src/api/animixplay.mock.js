@@ -97,7 +97,7 @@ export const ANIMIXPLAY_HOMEPAGE_HTML_RESPONSE = {
                         src="https://cdn.animixplay.to/i/41adf097b26cf486c64da6ada76adac2.jpg"
                       />
                       <div class="timetext">2022-09-17 17:15:04</div>
-                      <div class="rating">721</div>
+                      <div class="rating">0</div>
                     </div>
                     <div class="details">
                       <p class="name">A Couple of Cuckoos</p>
