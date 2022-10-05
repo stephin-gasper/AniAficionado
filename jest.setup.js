@@ -5,4 +5,16 @@ import 'jest-styled-components/native';
 
 jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 
-jest.mock('react-native-fast-image', () => props => <MockImage {...props} />);
+const FastImage = props => <MockImage {...props} />;
+FastImage.resizeMode = {
+  stretch: 'stretch',
+};
+jest.mock('react-native-fast-image', () => FastImage);
+
+jest.mock('react-native-vector-icons/MaterialCommunityIcons', () => props => (
+  <MockImage {...props} />
+));
+
+jest.mock('react-native-vector-icons/MaterialIcons', () => props => (
+  <MockImage {...props} />
+));
