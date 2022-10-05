@@ -3,12 +3,12 @@
 exports[`<Header /> should render correctly 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "backgroundColor": "#1e2226",
+    [
+      {
+        "backgroundColor": "#6a5498",
         "paddingBottom": 10,
-        "paddingLeft": 20,
-        "paddingRight": 20,
+        "paddingLeft": 10,
+        "paddingRight": 10,
         "paddingTop": 0,
       },
     ]
@@ -16,8 +16,8 @@ exports[`<Header /> should render correctly 1`] = `
 >
   <View
     style={
-      Array [
-        Object {
+      [
+        {
           "alignItems": "center",
         },
       ]
