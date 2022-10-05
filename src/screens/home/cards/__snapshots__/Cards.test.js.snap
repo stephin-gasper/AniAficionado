@@ -3,95 +3,199 @@
 exports[`<Cards /> should render correctly 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "backgroundColor": "#d62839",
-        "borderBottomLeftRadius": 5,
-        "borderBottomRightRadius": 5,
-        "borderTopLeftRadius": 7,
-        "borderTopRightRadius": 7,
+    [
+      {
         "marginBottom": 20,
+        "paddingBottom": 0,
+        "paddingLeft": 2.5,
+        "paddingRight": 2.5,
+        "paddingTop": 0,
+        "width": "33.333333333333336%",
       },
     ]
   }
 >
   <View
     style={
-      Array [
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "center",
+      [
+        {
+          "backgroundColor": "#9381b9",
+          "borderColor": "#9381b9",
+          "borderRadius": 5,
+          "borderStyle": "solid",
+          "borderWidth": 1,
+          "flexBasis": 0,
+          "flexGrow": 1,
+          "flexShrink": 1,
         },
       ]
     }
   >
-    <Image
-      source={
-        Object {
-          "uri": "https://www.sample-img.com",
+    <View>
+      <Image
+        resizeMode="stretch"
+        source={
+          {
+            "uri": "https://www.sample-img.com",
+          }
         }
-      }
-      style={
-        Object {
-          "borderTopLeftRadius": 5,
-          "borderTopRightRadius": 5,
-          "resizeMode": "contain",
-        }
-      }
-      testID="featuredImage"
-      width={710}
-    />
-    <View
-      style={
-        Array [
-          Object {
-            "backgroundColor": "#1e2226",
+        style={
+          {
+            "aspectRatio": 0.75,
             "borderTopLeftRadius": 5,
             "borderTopRightRadius": 5,
-            "bottom": 0,
-            "left": 0,
-            "opacity": 0.3,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          },
-        ]
-      }
-    />
-    <Text
+            "flex": 1,
+          }
+        }
+        testID="featuredImage"
+      />
+      <View
+        style={
+          [
+            {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            },
+          ]
+        }
+      >
+        <View
+          ratingColorKey="great"
+          style={
+            [
+              {
+                "alignItems": "flex-start",
+                "backgroundColor": "#01ba38d9",
+                "bottom": 2,
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "left": 2,
+                "paddingBottom": 2,
+                "paddingLeft": 4,
+                "paddingRight": 4,
+                "paddingTop": 2,
+                "position": "absolute",
+              },
+            ]
+          }
+        >
+          <Image
+            color="#fffade"
+            name="star"
+            size={11}
+          />
+          <Text
+            style={
+              [
+                {
+                  "color": "#fffade",
+                  "fontSize": 10,
+                  "marginTop": -1,
+                },
+              ]
+            }
+          >
+             
+            9
+          </Text>
+        </View>
+        <View
+          style={
+            [
+              {
+                "alignItems": "flex-start",
+                "backgroundColor": "#352462d9",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "paddingBottom": 2,
+                "paddingLeft": 4,
+                "paddingRight": 4,
+                "paddingTop": 2,
+                "position": "absolute",
+                "right": 2,
+                "top": 2,
+              },
+            ]
+          }
+        >
+          <Image
+            color="#fffade"
+            name="live-tv"
+            size={11}
+          />
+          <Text
+            style={
+              [
+                {
+                  "color": "#fffade",
+                  "fontSize": 10,
+                },
+              ]
+            }
+          >
+             
+            2
+            /
+            12
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
       style={
-        Array [
-          Object {
-            "color": "#fffade",
-            "fontSize": 18,
-            "fontWeight": "600",
-            "position": "absolute",
-            "right": 10,
-            "top": 10,
+        [
+          {
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "justifyContent": "space-between",
+            "paddingBottom": 5,
+            "paddingLeft": 4,
+            "paddingRight": 4,
+            "paddingTop": 5,
           },
         ]
       }
     >
-      #
-      2
-    </Text>
+      <Text
+        numberOfLines={2}
+        selectable={true}
+        style={
+          [
+            {
+              "color": "#fffade",
+              "fontSize": 11,
+              "textAlign": "left",
+            },
+          ]
+        }
+      >
+        Sample title
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#fffadeb3",
+              "fontSize": 9,
+              "marginTop": 3,
+              "textAlign": "right",
+            },
+          ]
+        }
+      >
+        <Image
+          color="#fffadeb3"
+          name="clock-time-three-outline"
+          size={10}
+        />
+         
+        1 minute ago
+      </Text>
+    </View>
   </View>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#fffade",
-          "fontSize": 14,
-          "fontWeight": "600",
-          "paddingBottom": 20,
-          "paddingLeft": 10,
-          "paddingRight": 10,
-          "paddingTop": 10,
-        },
-      ]
-    }
-  >
-    Sample title
-  </Text>
 </View>
 `;
