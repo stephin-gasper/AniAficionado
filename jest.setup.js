@@ -18,3 +18,5 @@ jest.mock('react-native-vector-icons/MaterialCommunityIcons', () => props => (
 jest.mock('react-native-vector-icons/MaterialIcons', () => props => (
   <MockImage {...props} />
 ));
+
+require('react-native-reanimated/lib/reanimated2/jestUtils').setUpTests();

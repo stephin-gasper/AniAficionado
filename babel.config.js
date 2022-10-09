@@ -3,6 +3,7 @@ module.exports = {
   plugins: [
     'jsx-control-statements',
     '@babel/plugin-transform-named-capturing-groups-regex',
+    'react-native-reanimated/plugin',
     [
       'module-resolver',
       {
