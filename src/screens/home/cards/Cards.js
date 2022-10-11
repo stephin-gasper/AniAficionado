@@ -1,10 +1,11 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {View} from 'react-native';
+import {useWindowDimensions, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {useTheme} from 'styled-components/native';
+// import {getAnimeDetails} from 'services/anime';
 import getRatingColorKey from 'utils/getRatingColorKey';
 
 import {
@@ -30,6 +31,12 @@ const Cards = ({
   releaseTime,
 }) => {
   const theme = useTheme();
+  // const {width: windowWidth} = useWindowDimensions();
+
+  const onTitlePress = async () => {
+    // const data = await getAnimeDetails({animeName: title});
+    // console.log('## title', data);
+  };
 
   const ratingColorKey = useMemo(() => getRatingColorKey(rating), [rating]);
 

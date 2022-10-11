@@ -2,9 +2,12 @@ import React, {useCallback, useState} from 'react';
 import {InteractionManager, Text, ScrollView} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
 import {getInitialLatestSubbedEpisodes} from 'services/anime';
+import Pills from 'components/pills';
 
 import Cards from './cards';
 import {CardWrapper, Container} from './Home.style';
+
+const pillsList = ['Sub', 'Dub', 'All', 'Popular', 'Movies'];
 
 const Home = () => {
   const [latestEpisodes, setLatestEpisodes] = useState([]);
@@ -26,6 +29,7 @@ const Home = () => {
   return (
     <Container>
       <ScrollView showsVerticalScrollIndicator={false}>
+        <Pills list={pillsList} onPillPress={() => {}} />
         <Choose>
           <When condition={showLoader}>
             <Text testID="loaderText">Loading...</Text>
