@@ -12,10 +12,6 @@ jest.mock('@react-navigation/native', () => ({
 
 jest.mock('services/anime');
 
-jest.mock('components/pills', () => props => (
-  <MockView testID="pills" {...props} />
-));
-
 jest.mock('./cards', () => props => <MockView testID="animeCard" {...props} />);
 
 describe('<Home />', () => {
