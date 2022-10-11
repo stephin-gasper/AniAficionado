@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Pills /> should render correctly 1`] = `
+<RCTScrollView
+  contentContainerStyle={
+    {
+      "marginBottom": 20,
+      "marginHorizontal": -3,
+    }
+  }
+  horizontal={true}
+  showsVerticalScrollIndicator={false}
+>
+  <View>
+    <View
+      activeColor="#352462"
+      initialColor="#352462"
+      style={
+        [
+          {
+            "borderRadius": 20,
+            "marginBottom": 0,
+            "marginLeft": 3,
+            "marginRight": 3,
+            "marginTop": 0,
+          },
+        ]
+      }
+      testID="pill-0"
+    >
+      <Text
+        onPress={[Function]}
+        style={
+          [
+            {
+              "color": "#fffade",
+              "paddingBottom": 6,
+              "paddingLeft": 15,
+              "paddingRight": 15,
+              "paddingTop": 6,
+            },
+          ]
+        }
+        testID="pill-text-0"
+      >
+        pill1
+      </Text>
+    </View>
+    <View
+      activeColor="#9381b9"
+      initialColor="#9381b9"
+      style={
+        [
+          {
+            "borderRadius": 20,
+            "marginBottom": 0,
+            "marginLeft": 3,
+            "marginRight": 3,
+            "marginTop": 0,
+          },
+        ]
+      }
+      testID="pill-1"
+    >
+      <Text
+        onPress={[Function]}
+        style={
+          [
+            {
+              "color": "#fffade",
+              "paddingBottom": 6,
+              "paddingLeft": 15,
+              "paddingRight": 15,
+              "paddingTop": 6,
+            },
+          ]
+        }
+        testID="pill-text-1"
+      >
+        pill2
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
