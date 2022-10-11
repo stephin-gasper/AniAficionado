@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AnimatedBackgroundColorView /> should additional style when style prop is present 1`] = `
+<View
+  animatedStyle={
+    {
+      "value": {
+        "backgroundColor": "#ffffff",
+      },
+    }
+  }
+  collapsable={false}
+  style={
+    {
+      "backgroundColor": "#ffffff",
+      "width": 100,
+    }
+  }
+  testID="animatedBackgroundColorView"
+>
+  <View
+    testID="childComponent"
+  />
+</View>
+`;
+
+exports[`<AnimatedBackgroundColorView /> should render correctly 1`] = `
+<View
+  animatedStyle={
+    {
+      "value": {
+        "backgroundColor": "#ffffff",
+      },
+    }
+  }
+  collapsable={false}
+  style={
+    {
+      "backgroundColor": "#ffffff",
+    }
+  }
+  testID="animatedBackgroundColorView"
+>
+  <View
+    testID="childComponent"
+  />
+</View>
+`;
