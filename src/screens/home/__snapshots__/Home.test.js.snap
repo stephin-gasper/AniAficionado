@@ -22,6 +22,19 @@ exports[`<Home /> should render correctly 1`] = `
   >
     <View>
       <View
+        list={
+          [
+            "Sub",
+            "Dub",
+            "All",
+            "Popular",
+            "Movies",
+          ]
+        }
+        onPillPress={[Function]}
+        testID="pills"
+      />
+      <View
         style={
           [
             {
