@@ -53,7 +53,6 @@
     "jest-extended": "^3.1.0",
     "jest-styled-components": "^7.1.1",
     "metro-react-native-babel-preset": "^0.73.2",
-    "react-devtools": "^4.26.1",
     "react-test-renderer": "^18.2.0",
     "yarn-upgrade-all": "^0.7.1"
   },
