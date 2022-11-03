@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export const ANIMIXPLAY_HOMEPAGE_HTML_RESPONSE = {
   data: `
   <!DOCTYPE html>
@@ -146,4 +145,39 @@ export const ANIMIXPLAY_HOMEPAGE_HTML_RESPONSE = {
     </body>
   </html>
   `,
+};
+
+export const ANIMIXPLAY_LATEST_SUBBED_EPISODES_RESPONSE = {
+  data: {
+    result: [
+      {
+        title: 'Pop Team Epic Season 2',
+        url: '/v1/poputepipikku-2nd-season/ep2',
+        picture: 'https://cdn.animixplay.to/min/mal/1237/128067.jpg',
+        infotext: 'EP 2/12',
+        timetop: '2022-10-08 17:40:03',
+        score: 725,
+      },
+      {
+        title: 'Berserk: The Golden Age Arc - Memorial Edition',
+        url: '/v1/berserk-ougon-jidai-hen-memorial-edition/ep2',
+        picture:
+          'https://cdn.animixplay.to/i/1321b74296956451a9be2f8eb05aaa10.jpg',
+        infotext: 'EP 2/?',
+        timetop: '2022-10-08 17:10:02',
+        score: 762,
+      },
+      {
+        title: 'Ani ni Tsukeru Kusuri wa Nai! 5',
+        url: '/v1/ani-ni-tsukeru-kusuri-wa-nai-5/ep11',
+        picture:
+          'https://cdn.animixplay.to/i/b138226a737f622fdd885b8066cb0123.jpg',
+        infotext: 'EP 11/12',
+        timetop: '2022-10-08 02:15:04',
+        score: 707,
+      },
+    ],
+    more: true,
+    last: '2022-10-08 02:15:04',
+  },
 };

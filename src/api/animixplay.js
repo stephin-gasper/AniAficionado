@@ -1,9 +1,8 @@
 import axios from 'axios';
 
-const animixplayBaseUrl = 'https://animixplay.to/';
+const animixplayBaseUrl = 'https://animixplay.to';
 const timeout = 20000;
 
-// eslint-disable-next-line import/prefer-default-export
 export const fetchHomepageHtml = async () => {
   try {
     const {data} = await axios.get(animixplayBaseUrl, {
@@ -15,3 +14,25 @@ export const fetchHomepageHtml = async () => {
     return null;
   }
 };
+
+const fetchSearchEpisodes = async data => {
+  try {
+    const {data: dataFromResponse} = await axios.post(
+      `${animixplayBaseUrl}/api/search`,
+      data,
+      {
+        headers: {
+          'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        },
+        timeout,
+      },
+    );
+
+    return dataFromResponse;
+  } catch {
+    return null;
+  }
+};
+
+export const fetchLatestSubbedEpisodes = async ({episodeReleaseDate}) =>
+  fetchSearchEpisodes(`seasonal=${encodeURIComponent(episodeReleaseDate)}`);
