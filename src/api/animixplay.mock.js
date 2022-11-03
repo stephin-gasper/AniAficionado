@@ -181,3 +181,75 @@ export const ANIMIXPLAY_LATEST_SUBBED_EPISODES_RESPONSE = {
     last: '2022-10-08 02:15:04',
   },
 };
+
+export const ANIMIXPLAY_LATEST_DUBBED_EPISODES_INITIAL_RESPONSE = {
+  data: {
+    result: [
+      {
+        title: 'Is It Wrong to Try to Pick Up Girls in a Dungeon? IV (Dub)',
+        url: '/v1/dungeon-ni-deai-wo-motomeru-no-wa-machigatteiru-darou-ka-iv-shin-shou-meikyuu-hen-dub/ep6',
+        picture:
+          'https://cdn.animixplay.to/i/9070fe0fedb8b559371dfdbc3dca63eb.jpg',
+        infotext: 'EP 6/11',
+        timetop: '2022-11-03 17:45:09',
+        score: 768,
+      },
+      {
+        title: 'Call of the Night (Dub)',
+        url: '/v1/yofukashi-no-uta-dub/ep9',
+        picture:
+          'https://cdn.animixplay.to/i/c3668266da90c7b66bc52152593e50bb.jpg',
+        infotext: 'EP 9/13',
+        timetop: '2022-11-03 17:45:07',
+        score: 809,
+      },
+      {
+        title: 'Engage Kiss (Dub)',
+        url: '/v1/engage-kiss-dub/ep11',
+        picture:
+          'https://cdn.animixplay.to/i/d4c1969bc419f6a1a3a092eb5e80be95.jpg',
+        infotext: 'EP 11/13',
+        timetop: '2022-10-29 23:35:05',
+        score: 690,
+      },
+    ],
+    more: true,
+    last: '2022-10-29 23:35:05',
+  },
+};
+
+export const ANIMIXPLAY_LATEST_DUBBED_EPISODES_LOAD_MORE_RESPONSE = {
+  data: {
+    result: [
+      {
+        title: "I'm the Villainess, So I'm Taming the Final Boss (Dub)",
+        url: '/v1/akuyaku-reijou-nanode-last-boss-wo-kattemimashita-dub/ep3',
+        picture:
+          'https://cdn.animixplay.to/i/e6b8df94c496957dea85857204f240de.jpg',
+        infotext: 'EP 3/?',
+        timetop: '2022-10-29 23:30:03',
+        score: 748,
+      },
+      {
+        title: 'Blue Lock (Dub)',
+        url: '/v1/blue-lock-dub/ep2',
+        picture:
+          'https://cdn.animixplay.to/i/55b1e8116c273ed5f56aaf06279cfb6d.jpg',
+        infotext: 'EP 2/24',
+        timetop: '2022-10-29 23:29:07',
+        score: 827,
+      },
+      {
+        title: "Natsume's Book of Friends (Dub)",
+        url: '/v1/natsume-yuujinchou-dub/ep13',
+        picture:
+          'https://cdn.animixplay.to/i/5f109a1c50e3251d3414c1ee0a2c93b2.jpg',
+        infotext: 'EP 13/13',
+        timetop: '2022-10-17 02:10:06',
+        score: 832,
+      },
+    ],
+    more: true,
+    last: '2022-10-17 02:10:06',
+  },
+};

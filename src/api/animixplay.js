@@ -36,3 +36,8 @@ const fetchSearchEpisodes = async data => {
 
 export const fetchLatestSubbedEpisodes = async ({episodeReleaseDate}) =>
   fetchSearchEpisodes(`seasonal=${encodeURIComponent(episodeReleaseDate)}`);
+
+export const fetchLatestDubbedEpisodes = async ({
+  episodeReleaseDate = '3020-05-06 00:00:00',
+} = {}) =>
+  fetchSearchEpisodes(`seasonaldub=${encodeURIComponent(episodeReleaseDate)}`);
