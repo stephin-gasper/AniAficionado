@@ -253,3 +253,74 @@ export const ANIMIXPLAY_LATEST_DUBBED_EPISODES_LOAD_MORE_RESPONSE = {
     last: '2022-10-17 02:10:06',
   },
 };
+
+export const ANIMIXPLAY_ALL_RECENT_EPISODES_INITIAL_RESPONSE = {
+  data: {
+    result: [
+      {
+        title: 'The First Immortal of the Seven Realms',
+        url: '/v1/qi-jie-diyi-xian/ep77',
+        picture:
+          'https://cdn.animixplay.to/i/d52284c3c93f00524d11443a30a9063a.jpg',
+        infotext: 'ONA ',
+        timetop: '2022-11-04 16:16:05',
+        score: 604,
+      },
+      {
+        title: 'Qi Jie Diyi Xian',
+        url: '/v11/XhaDbdfQ8H6E2BBE7/ep77',
+        picture:
+          'https://cdn.animixplay.to/i/6913c2c934e333a6d67d1d7cb4325f59.jpg',
+        infotext: '2022 ONA',
+        timetop: '2022-11-04 16:15:22',
+        score: 604,
+      },
+      {
+        title: 'Wu Shang Shen Di 2nd Season',
+        url: '/v1/wu-shang-shen-di-2nd-season/ep155',
+        picture:
+          'https://cdn.animixplay.to/i/3ba88a4a5c1eed9733f12794e7032559.jpg',
+        infotext: 'ONA ',
+        timetop: '2022-11-04 05:00:06',
+        score: 693,
+      },
+    ],
+    more: true,
+    last: '2022-11-04 05:00:06',
+  },
+};
+
+export const ANIMIXPLAY_ALL_RECENT_EPISODES_LOAD_MORE_RESPONSE = {
+  data: {
+    result: [
+      {
+        title: 'Wan Jie Shen Zhu',
+        url: '/v1/wan-jie-shen-zhu/ep281',
+        picture:
+          'https://cdn.animixplay.to/i/9df62b0406a56edc357b94594d1aceeb.jpg',
+        infotext: 'ONA ',
+        timetop: '2022-11-04 05:00:04',
+        score: 681,
+      },
+      {
+        title: 'Sweet Bite Marks',
+        url: '/v1/tian-mei-de-yao-hen/ep11',
+        picture:
+          'https://cdn.animixplay.to/i/f3ac7f3929c20fc7143ff8ec8832e2c7.jpg',
+        infotext: 'ONA ',
+        timetop: '2022-11-04 04:50:03',
+        score: 641,
+      },
+      {
+        title: 'Bibliophile Princess',
+        url: '/v1/mushikaburi-hime/ep5',
+        picture: 'https://cdn.animixplay.to/min/mal/1256/128714.jpg',
+        infotext: 'Fall 2022 Anime ',
+        timetop: '2022-11-03 14:45:04',
+        score: 723,
+      },
+    ],
+    more: true,
+    last: '2022-11-03 14:45:04',
+  },
+};

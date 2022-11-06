@@ -1,5 +1,44 @@
-import {ANIMIXPLAY_HOMEPAGE_HTML_RESPONSE} from 'api/animixplay.mock';
+import {
+  ANIMIXPLAY_ALL_RECENT_EPISODES_INITIAL_RESPONSE,
+  ANIMIXPLAY_ALL_RECENT_EPISODES_LOAD_MORE_RESPONSE,
+  ANIMIXPLAY_HOMEPAGE_HTML_RESPONSE,
+  ANIMIXPLAY_LATEST_DUBBED_EPISODES_INITIAL_RESPONSE,
+  ANIMIXPLAY_LATEST_DUBBED_EPISODES_LOAD_MORE_RESPONSE,
+  ANIMIXPLAY_LATEST_SUBBED_EPISODES_RESPONSE,
+} from 'api/animixplay.mock';
+
+const defaultEpisodeReleaseDateAndTime = '3020-05-06 00:00:00';
 
 export const fetchHomepageHtml = jest.fn(() =>
   Promise.resolve(ANIMIXPLAY_HOMEPAGE_HTML_RESPONSE.data),
+);
+
+export const fetchLatestSubbedEpisodes = jest.fn(() =>
+  Promise.resolve(ANIMIXPLAY_LATEST_SUBBED_EPISODES_RESPONSE.data),
+);
+
+export const fetchLatestDubbedEpisodes = jest.fn(
+  ({episodeReleaseDateAndTime = defaultEpisodeReleaseDateAndTime} = {}) => {
+    if (episodeReleaseDateAndTime === defaultEpisodeReleaseDateAndTime) {
+      return Promise.resolve(
+        ANIMIXPLAY_LATEST_DUBBED_EPISODES_INITIAL_RESPONSE.data,
+      );
+    }
+    return Promise.resolve(
+      ANIMIXPLAY_LATEST_DUBBED_EPISODES_LOAD_MORE_RESPONSE.data,
+    );
+  },
+);
+
+export const fetchAllRecentEpisodes = jest.fn(
+  ({episodeReleaseDateAndTime = defaultEpisodeReleaseDateAndTime} = {}) => {
+    if (episodeReleaseDateAndTime === defaultEpisodeReleaseDateAndTime) {
+      return Promise.resolve(
+        ANIMIXPLAY_ALL_RECENT_EPISODES_INITIAL_RESPONSE.data,
+      );
+    }
+    return Promise.resolve(
+      ANIMIXPLAY_ALL_RECENT_EPISODES_LOAD_MORE_RESPONSE.data,
+    );
+  },
 );
