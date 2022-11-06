@@ -3,6 +3,7 @@ import {
   fetchAllRecentEpisodes,
   fetchHomepageHtml,
   fetchLatestDubbedEpisodes,
+  fetchLatestMovies,
   fetchLatestSubbedEpisodes,
 } from './animixplay';
 import {
@@ -11,6 +12,8 @@ import {
   ANIMIXPLAY_HOMEPAGE_HTML_RESPONSE,
   ANIMIXPLAY_LATEST_DUBBED_EPISODES_INITIAL_RESPONSE,
   ANIMIXPLAY_LATEST_DUBBED_EPISODES_LOAD_MORE_RESPONSE,
+  ANIMIXPLAY_LATEST_MOVIES_INITIAL_RESPONSE,
+  ANIMIXPLAY_LATEST_MOVIES_LOAD_MORE_RESPONSE,
   ANIMIXPLAY_LATEST_SUBBED_EPISODES_RESPONSE,
 } from './animixplay.mock';
 
@@ -137,5 +140,35 @@ describe('tests for animixplay related apis', () => {
         timeout,
       },
     );
+  });
+
+  it('should fetch latest movies with default id', async () => {
+    const mockAxiosPost = jest
+      .spyOn(axios, 'post')
+      .mockResolvedValueOnce(ANIMIXPLAY_LATEST_MOVIES_INITIAL_RESPONSE);
+    await expect(fetchLatestMovies()).resolves.toStrictEqual(
+      ANIMIXPLAY_LATEST_MOVIES_INITIAL_RESPONSE.data,
+    );
+    expect(mockAxiosPost).toHaveBeenCalledTimes(1);
+    expect(mockAxiosPost).toHaveBeenCalledWith(searchApiURL, 'movie=99999999', {
+      headers: formUrlencodedContentTypeHeader,
+      timeout,
+    });
+  });
+
+  it('should fetch latest movies with custom id', async () => {
+    const mockAxiosPost = jest
+      .spyOn(axios, 'post')
+      .mockResolvedValueOnce(ANIMIXPLAY_LATEST_MOVIES_LOAD_MORE_RESPONSE);
+    await expect(
+      fetchLatestMovies({
+        id: 519415,
+      }),
+    ).resolves.toStrictEqual(ANIMIXPLAY_LATEST_MOVIES_LOAD_MORE_RESPONSE.data);
+    expect(mockAxiosPost).toHaveBeenCalledTimes(1);
+    expect(mockAxiosPost).toHaveBeenCalledWith(searchApiURL, 'movie=519415', {
+      headers: formUrlencodedContentTypeHeader,
+      timeout,
+    });
   });
 });

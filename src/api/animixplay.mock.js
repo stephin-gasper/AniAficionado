@@ -324,3 +324,68 @@ export const ANIMIXPLAY_ALL_RECENT_EPISODES_LOAD_MORE_RESPONSE = {
     last: '2022-11-03 14:45:04',
   },
 };
+
+export const ANIMIXPLAY_LATEST_MOVIES_INITIAL_RESPONSE = {
+  data: {
+    result: [
+      {
+        title: 'Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train',
+        url: '/v1/kimetsu-no-yaiba-movie-mugen-ressha-hen-camrip',
+        picture: 'https://cdn.animixplay.to/min/mal/1704/106947.jpg',
+        infotext: ' Movie',
+        score: 864,
+      },
+      {
+        title: "My Hero Academia: World Heroes' Mission",
+        url: '/v1/boku-no-hero-academia-the-movie-3-world-heroes-mission',
+        picture: 'https://cdn.animixplay.to/min/mal/1049/115605.jpg',
+        infotext: 'Movie ',
+        score: 757,
+      },
+      {
+        title: 'My Hero Academia: Heroes Rising',
+        url: '/v1/boku-no-hero-academia-the-movie-2-heroesrising',
+        picture:
+          'https://cdn.animixplay.to/i/f8e5c8123212d73cf54a29648d59b022.jpg',
+        infotext: '2019 Movies ',
+        score: 800,
+      },
+    ],
+    more: true,
+    last: 519415,
+  },
+};
+
+export const ANIMIXPLAY_LATEST_MOVIES_LOAD_MORE_RESPONSE = {
+  data: {
+    result: [
+      {
+        title: 'Demon Slayer: Kimetsu no Yaiba',
+        url: '/v1/kimetsu-no-yaiba-recap-movie-2-mt-natagumo-arc',
+        picture:
+          'https://cdn.animixplay.to/i/4b93286be725dff5bca322bd8e917bd5.jpg',
+        infotext: 'Movie ',
+        score: 852,
+      },
+      {
+        title: 'My Hero Academia: Two Heroes',
+        url: '/v1/boku-no-hero-academia-the-movie-futari-no-hero',
+        picture:
+          'https://cdn.animixplay.to/i/772058d8e574c002682d600796711267.jpg',
+        infotext: 'Movies ',
+        score: 757,
+      },
+      {
+        title:
+          "KonoSuba: God's Blessing on This Wonderful World! - Legend of Crimson",
+        url: '/v1/kono-subarashii-sekai-ni-shukufuku-wo-kurenai-densetsu',
+        picture:
+          'https://cdn.animixplay.to/i/1c65d845f8323a17034b1f66ef1b0e92.jpg',
+        infotext: 'Movies ',
+        score: 846,
+      },
+    ],
+    more: true,
+    last: 344603,
+  },
+};

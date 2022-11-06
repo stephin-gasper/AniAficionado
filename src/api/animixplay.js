@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const animixplayBaseUrl = 'https://animixplay.to';
-// const animixplayBaseUrl = 'http://10.0.2.2:3003';
 const searchApiURL = `${animixplayBaseUrl}/api/search`;
 const timeout = 20000;
 const defaultEpisodeReleaseDateAndTime = '3020-05-06 00:00:00';
@@ -56,3 +55,6 @@ export const fetchAllRecentEpisodes = async ({
       : searchApiURL,
     `recent=${encodeURIComponent(episodeReleaseDateAndTime)}`,
   );
+
+export const fetchLatestMovies = async ({id = 99999999} = {}) =>
+  makeFormURLEncodedRequest(searchApiURL, `movie=${id}`);
