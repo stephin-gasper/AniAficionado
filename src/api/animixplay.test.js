@@ -5,6 +5,7 @@ import {
   fetchLatestDubbedEpisodes,
   fetchLatestMovies,
   fetchLatestSubbedEpisodes,
+  fetchPopularEpisodes,
 } from './animixplay';
 import {
   ANIMIXPLAY_ALL_RECENT_EPISODES_INITIAL_RESPONSE,
@@ -14,6 +15,8 @@ import {
   ANIMIXPLAY_LATEST_DUBBED_EPISODES_LOAD_MORE_RESPONSE,
   ANIMIXPLAY_LATEST_MOVIES_INITIAL_RESPONSE,
   ANIMIXPLAY_LATEST_MOVIES_LOAD_MORE_RESPONSE,
+  ANIMIXPLAY_LATEST_POPULAR_EPISODES_INITIAL_RESPONSE,
+  ANIMIXPLAY_LATEST_POPULAR_EPISODES_LOAD_MORE_RESPONSE,
   ANIMIXPLAY_LATEST_SUBBED_EPISODES_RESPONSE,
 } from './animixplay.mock';
 
@@ -170,5 +173,43 @@ describe('tests for animixplay related apis', () => {
       headers: formUrlencodedContentTypeHeader,
       timeout,
     });
+  });
+
+  it('should fetch latest popular episodes when isLoadMore is false', async () => {
+    const mockAxiosGet = jest
+      .spyOn(axios, 'get')
+      .mockResolvedValueOnce(
+        ANIMIXPLAY_LATEST_POPULAR_EPISODES_INITIAL_RESPONSE,
+      );
+    await expect(fetchPopularEpisodes()).resolves.toStrictEqual(
+      ANIMIXPLAY_LATEST_POPULAR_EPISODES_INITIAL_RESPONSE.data,
+    );
+    expect(mockAxiosGet).toHaveBeenCalledTimes(1);
+    expect(mockAxiosGet).toHaveBeenCalledWith(
+      `${animixplayBaseUrl}/assets/s/popular.json`,
+      {
+        timeout,
+      },
+    );
+  });
+
+  it('should fetch latest popular episodes when isLoadMore is true', async () => {
+    const mockAxiosGet = jest
+      .spyOn(axios, 'get')
+      .mockResolvedValueOnce(
+        ANIMIXPLAY_LATEST_POPULAR_EPISODES_LOAD_MORE_RESPONSE,
+      );
+    await expect(
+      fetchPopularEpisodes({isLoadMore: true}),
+    ).resolves.toStrictEqual(
+      ANIMIXPLAY_LATEST_POPULAR_EPISODES_LOAD_MORE_RESPONSE.data,
+    );
+    expect(mockAxiosGet).toHaveBeenCalledTimes(1);
+    expect(mockAxiosGet).toHaveBeenCalledWith(
+      `${animixplayBaseUrl}/assets/s/popularfull.json`,
+      {
+        timeout,
+      },
+    );
   });
 });

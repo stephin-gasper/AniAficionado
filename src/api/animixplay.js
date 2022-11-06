@@ -5,17 +5,19 @@ const searchApiURL = `${animixplayBaseUrl}/api/search`;
 const timeout = 20000;
 const defaultEpisodeReleaseDateAndTime = '3020-05-06 00:00:00';
 
-export const fetchHomepageHtml = async () => {
+const makeGetRequest = async url => {
   try {
-    const {data} = await axios.get(animixplayBaseUrl, {
+    const {data: dataFromResponse} = await axios.get(url, {
       timeout,
     });
 
-    return data;
+    return dataFromResponse;
   } catch {
     return null;
   }
 };
+
+export const fetchHomepageHtml = () => makeGetRequest(animixplayBaseUrl);
 
 const makeFormURLEncodedRequest = async (url, data) => {
   try {
@@ -58,3 +60,10 @@ export const fetchAllRecentEpisodes = async ({
 
 export const fetchLatestMovies = async ({id = 99999999} = {}) =>
   makeFormURLEncodedRequest(searchApiURL, `movie=${id}`);
+
+export const fetchPopularEpisodes = async ({isLoadMore = false} = {}) =>
+  makeGetRequest(
+    `${animixplayBaseUrl}/assets/s/${
+      isLoadMore ? 'popularfull' : 'popular'
+    }.json`,
+  );

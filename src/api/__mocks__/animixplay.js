@@ -6,6 +6,8 @@ import {
   ANIMIXPLAY_LATEST_DUBBED_EPISODES_LOAD_MORE_RESPONSE,
   ANIMIXPLAY_LATEST_MOVIES_INITIAL_RESPONSE,
   ANIMIXPLAY_LATEST_MOVIES_LOAD_MORE_RESPONSE,
+  ANIMIXPLAY_LATEST_POPULAR_EPISODES_INITIAL_RESPONSE,
+  ANIMIXPLAY_LATEST_POPULAR_EPISODES_LOAD_MORE_RESPONSE,
   ANIMIXPLAY_LATEST_SUBBED_EPISODES_RESPONSE,
 } from 'api/animixplay.mock';
 
@@ -50,4 +52,15 @@ export const fetchLatestMovies = jest.fn(({id = 99999999} = {}) => {
     return Promise.resolve(ANIMIXPLAY_LATEST_MOVIES_INITIAL_RESPONSE.data);
   }
   return Promise.resolve(ANIMIXPLAY_LATEST_MOVIES_LOAD_MORE_RESPONSE.data);
+});
+
+export const fetchPopularEpisodes = jest.fn(({isLoadMore = false} = {}) => {
+  if (isLoadMore) {
+    return Promise.resolve(
+      ANIMIXPLAY_LATEST_POPULAR_EPISODES_LOAD_MORE_RESPONSE.data,
+    );
+  }
+  return Promise.resolve(
+    ANIMIXPLAY_LATEST_POPULAR_EPISODES_INITIAL_RESPONSE.data,
+  );
 });

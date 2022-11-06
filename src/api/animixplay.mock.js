@@ -389,3 +389,74 @@ export const ANIMIXPLAY_LATEST_MOVIES_LOAD_MORE_RESPONSE = {
     last: 344603,
   },
 };
+
+export const ANIMIXPLAY_LATEST_POPULAR_EPISODES_INITIAL_RESPONSE = {
+  data: {
+    result: [
+      {
+        title: 'Spy x Family Part 2',
+        url: '/anime/50602',
+        picture:
+          'https://cdn.animixplay.to/i/a21cc23f574ea628e8908eaef9d8dacc.jpg',
+        timetop: '',
+        infotext: '<i class="glyphicon glyphicon-stats"></i> 848,842',
+        score: 880,
+      },
+      {
+        title: 'Blue Lock',
+        url: '/anime/49596',
+        picture:
+          'https://cdn.animixplay.to/i/55b1e8116c273ed5f56aaf06279cfb6d.jpg',
+        timetop:
+          '<div style="color: #42d042;"><i class="glyphicon glyphicon-menu-up"></i> 2</div>',
+        infotext: '<i class="glyphicon glyphicon-stats"></i> 438,452',
+        score: 0,
+      },
+      {
+        title: 'Mob Psycho 100 III',
+        url: '/anime/50172',
+        picture:
+          'https://cdn.animixplay.to/i/d745de809e9219112a3d2dd36fada30f.jpg',
+        timetop:
+          '<div style="color: #d05353;"><i class="glyphicon glyphicon-menu-down"></i> 1</div>',
+        infotext: '<i class="glyphicon glyphicon-stats"></i> 377,048',
+        score: 0,
+      },
+    ],
+  },
+};
+
+export const ANIMIXPLAY_LATEST_POPULAR_EPISODES_LOAD_MORE_RESPONSE = {
+  data: {
+    result: [
+      {
+        title: 'Chainsaw Man',
+        url: '/anime/44511',
+        picture: 'https://cdn.animixplay.to/min/mal/1806/126216.jpg',
+        timetop: '',
+        infotext: '<i class="glyphicon glyphicon-stats"></i> 2,143,445',
+        score: 891,
+      },
+      {
+        title: 'Fairy Tail',
+        url: '/anime/6702',
+        picture:
+          'https://cdn.animixplay.to/i/29d2ea476a899ab2ccc4a0dc2c92a2a2.jpg',
+        timetop:
+          '<div style="color: #42d042;"><i class="glyphicon glyphicon-menu-up"></i> 1</div>',
+        infotext: '<i class="glyphicon glyphicon-stats"></i> 33,229',
+        score: 758,
+      },
+      {
+        title: 'The Quintessential Quintuplets 2',
+        url: '/anime/39783',
+        picture:
+          'https://cdn.animixplay.to/i/40d7d4f647937993102bd4715493c7c4.jpg',
+        timetop:
+          '<div style="color: #d05353;"><i class="glyphicon glyphicon-menu-down"></i> 6</div>',
+        infotext: '<i class="glyphicon glyphicon-stats"></i> 33,069',
+        score: 810,
+      },
+    ],
+  },
+};
