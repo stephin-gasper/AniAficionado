@@ -51,5 +51,6 @@ module.exports = {
     'react/jsx-props-no-spreading': OFF,
     'react/jsx-no-undef': [ERROR, {allowGlobals: true}],
     'jsx-control-statements/jsx-for-require-body': OFF,
+    'no-plusplus': ['error', {allowForLoopAfterthoughts: true}],
   },
 };
