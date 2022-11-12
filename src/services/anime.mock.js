@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/prefer-default-export
 export const INITIAL_LATEST_SUBBED_EPISODES_RESPONSE = [
   {
     id: '/v1/boruto-naruto-next-generations/ep267',
@@ -31,3 +30,38 @@ export const INITIAL_LATEST_SUBBED_EPISODES_RESPONSE = [
     rating: '?',
   },
 ];
+
+export const LATEST_SUBBED_EPISODES_RESPONSE = {
+  list: [
+    {
+      id: '/v1/poputepipikku-2nd-season/ep2',
+      imageUrl: 'https://cdn.animixplay.to/min/mal/1237/128067.jpg',
+      latestEpisodeNumber: '2',
+      rating: '7.25',
+      releaseTime: '1 month ago',
+      title: 'Pop Team Epic Season 2',
+      totalEpisodes: '12',
+    },
+    {
+      id: '/v1/berserk-ougon-jidai-hen-memorial-edition/ep2',
+      imageUrl:
+        'https://cdn.animixplay.to/i/1321b74296956451a9be2f8eb05aaa10.jpg',
+      latestEpisodeNumber: '2',
+      rating: '7.62',
+      releaseTime: '1 month ago',
+      title: 'Berserk: The Golden Age Arc - Memorial Edition',
+      totalEpisodes: '?',
+    },
+    {
+      id: '/v1/ani-ni-tsukeru-kusuri-wa-nai-5/ep11',
+      imageUrl:
+        'https://cdn.animixplay.to/i/b138226a737f622fdd885b8066cb0123.jpg',
+      latestEpisodeNumber: '11',
+      rating: '7.07',
+      releaseTime: '1 month ago',
+      title: 'Ani ni Tsukeru Kusuri wa Nai! 5',
+      totalEpisodes: '12',
+    },
+  ],
+  canLoadMoreResults: true,
+};
