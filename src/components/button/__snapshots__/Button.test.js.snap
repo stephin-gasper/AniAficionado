@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> should render correctly 1`] = `
+<View
+  style={
+    [
+      {
+        "flexDirection": "row",
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#352462",
+        "borderRadius": 10,
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingBottom": 12,
+        "paddingLeft": 25,
+        "paddingRight": 25,
+        "paddingTop": 12,
+      }
+    }
+    testID="buttonContainer"
+  >
+    <Text
+      style={
+        [
+          {
+            "alignSelf": "center",
+            "color": "#fffade",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          },
+          {},
+        ]
+      }
+      testID="buttonText"
+    >
+      sample
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`<Button /> should render icon 1`] = `
+<View
+  style={
+    [
+      {
+        "flexDirection": "row",
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={false}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignItems": "center",
+        "backgroundColor": "#352462",
+        "borderRadius": 10,
+        "flexDirection": "row",
+        "flexWrap": "wrap",
+        "justifyContent": "center",
+        "opacity": 1,
+        "paddingBottom": 12,
+        "paddingLeft": 25,
+        "paddingRight": 25,
+        "paddingTop": 12,
+      }
+    }
+    testID="buttonContainer"
+  >
+    <View
+      color="#fffade"
+      name="someIcon"
+      size={15}
+      testID="icon"
+    />
+    <Text
+      style={
+        [
+          {
+            "alignSelf": "center",
+            "color": "#fffade",
+            "fontSize": 14,
+            "fontWeight": "bold",
+          },
+          {},
+        ]
+      }
+      testID="buttonText"
+    >
+      sample
+    </Text>
+  </View>
+</View>
+`;
