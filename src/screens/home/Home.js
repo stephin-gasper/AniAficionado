@@ -1,8 +1,13 @@
 import React, {useCallback, useState} from 'react';
 import {InteractionManager, Text, ScrollView} from 'react-native';
 import {useFocusEffect} from '@react-navigation/native';
-import {getInitialLatestSubbedEpisodes} from 'services/anime';
-import Pills from 'components/pills';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {
+  getInitialLatestSubbedEpisodes,
+  getLatestSubbedEpisodes,
+} from 'services/anime';
+import Pills from 'components/pills/Pills';
+import Button from 'components/button/Button';
 
 import Cards from './cards';
 import {CardWrapper, Container} from './Home.style';
@@ -10,8 +15,21 @@ import {CardWrapper, Container} from './Home.style';
 const pillsList = ['Sub', 'Dub', 'All', 'Popular', 'Movies'];
 
 const Home = () => {
-  const [latestEpisodes, setLatestEpisodes] = useState([]);
+  const [latestEpisodes, setLatestEpisodes] = useState();
   const [showLoader, setShowLoader] = useState(true);
+  const [showMoreResultsButton, setShowMoreResultsButton] = useState(true);
+
+  const showMoreResultsOnPress = () => {
+    setShowLoader(true);
+    getLatestSubbedEpisodes()
+      .then(({list, canLoadMoreResults}) => {
+        setLatestEpisodes([...latestEpisodes, ...list]);
+        setShowMoreResultsButton(canLoadMoreResults);
+      })
+      .finally(() => {
+        setShowLoader(false);
+      });
+  };
 
   useFocusEffect(
     useCallback(() => {
@@ -30,23 +48,40 @@ const Home = () => {
     <Container>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Pills list={pillsList} onPillPress={() => {}} />
-        <Choose>
-          <When condition={showLoader}>
-            <Text testID="loaderText">Loading...</Text>
-          </When>
-          <When condition={latestEpisodes.length > 0}>
-            <CardWrapper>
-              <For each="item" of={latestEpisodes}>
-                <Cards key={item.id} {...item} />
-              </For>
-            </CardWrapper>
-          </When>
-          <Otherwise>
-            <Text testID="noResponseText">
-              No anime&apos;s to show, please retry
-            </Text>
-          </Otherwise>
-        </Choose>
+        <If condition={latestEpisodes}>
+          <Choose>
+            <When condition={latestEpisodes.length > 0}>
+              <CardWrapper testID="cardWrapper">
+                <For each="item" of={latestEpisodes}>
+                  <Cards key={item.id} {...item} />
+                </For>
+              </CardWrapper>
+              <If condition={showMoreResultsButton}>
+                <Button
+                  testID="showMoreResultsButton"
+                  onPress={showMoreResultsOnPress}
+                  iconName="chevron-down"
+                  iconComponent={MaterialCommunityIcons}
+                  iconSize={22}
+                  style={{
+                    paddingLeft: 20,
+                    paddingTop: 10.5,
+                    paddingBottom: 10.5,
+                  }}>
+                  Show more results
+                </Button>
+              </If>
+            </When>
+            <Otherwise>
+              <Text testID="noResponseText">
+                No anime&apos;s to show, please retry
+              </Text>
+            </Otherwise>
+          </Choose>
+        </If>
+        <If condition={showLoader}>
+          <Text testID="loaderText">Loading...</Text>
+        </If>
       </ScrollView>
     </Container>
   );

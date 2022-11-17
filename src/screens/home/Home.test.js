@@ -1,7 +1,10 @@
 import {View as MockView, InteractionManager} from 'react-native';
 import React from 'react';
-import {render, act} from 'test/test-utils';
-import {getInitialLatestSubbedEpisodes} from 'services/anime';
+import {render, act, fireEvent} from 'test/test-utils';
+import {
+  getInitialLatestSubbedEpisodes,
+  getLatestSubbedEpisodes,
+} from 'services/anime';
 
 import Home from './Home';
 
@@ -12,36 +15,17 @@ jest.mock('@react-navigation/native', () => ({
 
 jest.mock('services/anime');
 
-jest.mock('components/pills', () => props => (
+jest.mock('components/pills/Pills', () => props => (
   <MockView testID="pills" {...props} />
+));
+
+jest.mock('components/button/Button', () => props => (
+  <MockView testID="button" {...props} />
 ));
 
 jest.mock('./cards', () => props => <MockView testID="animeCard" {...props} />);
 
 describe('<Home />', () => {
-  it('should call api to get latest anime episodes', async () => {
-    const {getAllByTestId} = render(<Home />);
-
-    await act(async () => {
-      mockUseFocusEffect.mock.calls[0][0]();
-    });
-
-    expect(getAllByTestId('animeCard')).toHaveLength(3);
-    expect(getInitialLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
-    expect(getInitialLatestSubbedEpisodes).toHaveBeenCalledWith();
-  });
-
-  it('should render correctly', async () => {
-    const container = render(<Home />);
-
-    await act(async () => {
-      mockUseFocusEffect.mock.calls[0][0]();
-    });
-
-    expect(container).toMatchSnapshot();
-    expect(getInitialLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
-  });
-
   it('should cancel interaction manager on unmount', async () => {
     render(<Home />);
 
@@ -61,30 +45,125 @@ describe('<Home />', () => {
     expect(mockCancel).toHaveBeenCalledTimes(1);
   });
 
-  it('should some text when api return empty response', async () => {
-    const {getByTestId} = render(<Home />);
+  describe('tests for initial subbed episodes load', () => {
+    it('should render correctly', async () => {
+      const container = render(<Home />);
 
-    getInitialLatestSubbedEpisodes.mockResolvedValueOnce([]);
-    await act(async () => {
-      mockUseFocusEffect.mock.calls[0][0]();
+      await act(async () => {
+        mockUseFocusEffect.mock.calls[0][0]();
+      });
+
+      expect(container).toMatchSnapshot();
+      expect(getInitialLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
+    });
+    it('should call api to get latest anime episodes', async () => {
+      const {getAllByTestId} = render(<Home />);
+
+      await act(async () => {
+        mockUseFocusEffect.mock.calls[0][0]();
+      });
+
+      expect(getAllByTestId('animeCard')).toHaveLength(3);
+      expect(getInitialLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
+      expect(getInitialLatestSubbedEpisodes).toHaveBeenCalledWith();
     });
 
-    expect(getByTestId('noResponseText').props.children).toBe(
-      "No anime's to show, please retry",
-    );
-    expect(getInitialLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
+    it('should show some text when api return empty response', async () => {
+      const {getByTestId} = render(<Home />);
+
+      getInitialLatestSubbedEpisodes.mockResolvedValueOnce([]);
+      await act(async () => {
+        mockUseFocusEffect.mock.calls[0][0]();
+      });
+
+      expect(getByTestId('noResponseText').props.children).toBe(
+        "No anime's to show, please retry",
+      );
+      expect(getInitialLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
+    });
+
+    it('should loader text until api responds', async () => {
+      const {getByTestId, queryByTestId} = render(<Home />);
+
+      expect(getByTestId('loaderText').props.children).toBe('Loading...');
+      expect(queryByTestId('cardWrapper')).toBeNull();
+
+      await act(async () => {
+        mockUseFocusEffect.mock.calls[0][0]();
+      });
+
+      expect(queryByTestId('loaderText')).toBeNull();
+      expect(getByTestId('cardWrapper')).toBeDefined();
+      expect(getInitialLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
+    });
   });
 
-  it('should loader text until api respond', async () => {
-    const {getByTestId, queryByTestId} = render(<Home />);
+  describe('tests for loading more latest subbed animes', () => {
+    it('should call getLatestSubbedEpisodes when show more results button is clicked', async () => {
+      const container = render(<Home />);
+      const {getAllByTestId, getByTestId} = container;
 
-    expect(getByTestId('loaderText').props.children).toBe('Loading...');
+      await act(async () => {
+        mockUseFocusEffect.mock.calls[0][0]();
+      });
 
-    await act(async () => {
-      mockUseFocusEffect.mock.calls[0][0]();
+      expect(getAllByTestId('animeCard')).toHaveLength(3);
+
+      await act(async () => {
+        fireEvent(getByTestId('showMoreResultsButton'), 'onPress');
+      });
+
+      expect(getAllByTestId('animeCard')).toHaveLength(6);
+      expect(getLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
+      expect(getLatestSubbedEpisodes).toHaveBeenCalledWith();
+      expect(container).toMatchSnapshot();
     });
 
-    expect(queryByTestId('loaderText')).toBeNull();
-    expect(getInitialLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
+    it('should hide show more results button when getLatestSubbedEpisodes responds with canLoadMoreResults:false', async () => {
+      const {getAllByTestId, getByTestId, queryByTestId} = render(<Home />);
+
+      await act(async () => {
+        mockUseFocusEffect.mock.calls[0][0]();
+      });
+
+      getLatestSubbedEpisodes.mockResolvedValueOnce({
+        list: [],
+        canLoadMoreResults: false,
+      });
+      await act(async () => {
+        fireEvent(getByTestId('showMoreResultsButton'), 'onPress');
+      });
+
+      expect(getAllByTestId('animeCard')).toHaveLength(3);
+      expect(queryByTestId('showMoreResultsButton')).toBeNull();
+    });
+
+    it('should loader text until api responds', async () => {
+      const {getByTestId, queryByTestId} = render(<Home />);
+
+      await act(async () => {
+        mockUseFocusEffect.mock.calls[0][0]();
+      });
+
+      expect(queryByTestId('loaderText')).toBeNull();
+
+      let promiseResolver;
+      getLatestSubbedEpisodes.mockReturnValueOnce(
+        new Promise(resolve => {
+          promiseResolver = resolve;
+        }),
+      );
+      await act(async () => {
+        fireEvent(getByTestId('showMoreResultsButton'), 'onPress');
+      });
+
+      expect(getByTestId('loaderText')).toBeDefined();
+
+      await act(async () => {
+        await promiseResolver({list: [], canLoadMoreResults: false});
+      });
+
+      expect(queryByTestId('loaderText')).toBeNull();
+    });
   });
 });
