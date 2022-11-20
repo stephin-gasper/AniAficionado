@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Spinner /> should render correctly 1`] = `
+<View
+  style={
+    [
+      {
+        "alignItems": "center",
+        "backgroundColor": "rgba(106,84,153,0.7)",
+        "bottom": 0,
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "justifyContent": "center",
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+        "zIndex": 1,
+      },
+    ]
+  }
+>
+  <Image
+    source={
+      {
+        "testUri": "../../../src/assets/gifs/dojutsu.gif",
+      }
+    }
+    style={
+      {
+        "height": 140,
+        "width": 140,
+      }
+    }
+  />
+</View>
+`;
