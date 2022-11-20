@@ -19,6 +19,7 @@ exports[`<Home /> tests for initial subbed episodes load should render correctly
 >
   <RCTScrollView
     showsVerticalScrollIndicator={false}
+    testID="scrollView"
   >
     <View>
       <View
@@ -120,6 +121,7 @@ exports[`<Home /> tests for loading more latest subbed animes should call getLat
 >
   <RCTScrollView
     showsVerticalScrollIndicator={false}
+    testID="scrollView"
   >
     <View>
       <View

@@ -8,6 +8,7 @@ import {
 } from 'services/anime';
 import Pills from 'components/pills/Pills';
 import Button from 'components/button/Button';
+import Spinner from 'components/spinner/Spinner';
 
 import Cards from './cards';
 import {CardWrapper, Container} from './Home.style';
@@ -46,9 +47,9 @@ const Home = () => {
 
   return (
     <Container>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <Pills list={pillsList} onPillPress={() => {}} />
-        <If condition={latestEpisodes}>
+      <If condition={latestEpisodes}>
+        <ScrollView testID="scrollView" showsVerticalScrollIndicator={false}>
+          <Pills list={pillsList} onPillPress={() => {}} />
           <Choose>
             <When condition={latestEpisodes.length > 0}>
               <CardWrapper testID="cardWrapper">
@@ -78,11 +79,11 @@ const Home = () => {
               </Text>
             </Otherwise>
           </Choose>
-        </If>
-        <If condition={showLoader}>
-          <Text testID="loaderText">Loading...</Text>
-        </If>
-      </ScrollView>
+        </ScrollView>
+      </If>
+      <If condition={showLoader}>
+        <Spinner />
+      </If>
     </Container>
   );
 };

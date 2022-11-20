@@ -23,6 +23,10 @@ jest.mock('components/button/Button', () => props => (
   <MockView testID="button" {...props} />
 ));
 
+jest.mock('components/spinner/Spinner', () => props => (
+  <MockView testID="spinner" {...props} />
+));
+
 jest.mock('./cards', () => props => <MockView testID="animeCard" {...props} />);
 
 describe('<Home />', () => {
@@ -82,18 +86,22 @@ describe('<Home />', () => {
       expect(getInitialLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
     });
 
-    it('should loader text until api responds', async () => {
+    it('should spinner until api responds', async () => {
       const {getByTestId, queryByTestId} = render(<Home />);
 
-      expect(getByTestId('loaderText').props.children).toBe('Loading...');
+      expect(getByTestId('spinner')).toBeDefined();
       expect(queryByTestId('cardWrapper')).toBeNull();
+      expect(queryByTestId('scrollView')).toBeNull();
+      expect(queryByTestId('pills')).toBeNull();
 
       await act(async () => {
         mockUseFocusEffect.mock.calls[0][0]();
       });
 
-      expect(queryByTestId('loaderText')).toBeNull();
+      expect(queryByTestId('spinner')).toBeNull();
       expect(getByTestId('cardWrapper')).toBeDefined();
+      expect(getByTestId('scrollView')).toBeDefined();
+      expect(getByTestId('pills')).toBeDefined();
       expect(getInitialLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
     });
   });
@@ -145,7 +153,7 @@ describe('<Home />', () => {
         mockUseFocusEffect.mock.calls[0][0]();
       });
 
-      expect(queryByTestId('loaderText')).toBeNull();
+      expect(queryByTestId('spinner')).toBeNull();
 
       let promiseResolver;
       getLatestSubbedEpisodes.mockReturnValueOnce(
@@ -157,13 +165,16 @@ describe('<Home />', () => {
         fireEvent(getByTestId('showMoreResultsButton'), 'onPress');
       });
 
-      expect(getByTestId('loaderText')).toBeDefined();
+      expect(getByTestId('spinner')).toBeDefined();
+      expect(getByTestId('cardWrapper')).toBeDefined();
+      expect(getByTestId('scrollView')).toBeDefined();
+      expect(getByTestId('pills')).toBeDefined();
 
       await act(async () => {
         await promiseResolver({list: [], canLoadMoreResults: false});
       });
 
-      expect(queryByTestId('loaderText')).toBeNull();
+      expect(queryByTestId('spinner')).toBeNull();
     });
   });
 });
