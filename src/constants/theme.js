@@ -14,4 +14,5 @@ export default {
     [RATING_SCALE_KEYS.POOR]: '#e22026',
     [RATING_SCALE_KEYS.UNRATED]: '#a1a0a1',
   },
+  overlayColor: 'rgba(106,84,153,0.7)',
 };
