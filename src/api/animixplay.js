@@ -67,3 +67,6 @@ export const fetchPopularEpisodes = async ({isLoadMore = false} = {}) =>
       isLoadMore ? 'popularfull' : 'popular'
     }.json`,
   );
+
+export const fetchEpisodeHtml = path =>
+  makeGetRequest(`${animixplayBaseUrl}${path}`);

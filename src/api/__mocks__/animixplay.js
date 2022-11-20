@@ -9,6 +9,7 @@ import {
   ANIMIXPLAY_LATEST_POPULAR_EPISODES_INITIAL_RESPONSE,
   ANIMIXPLAY_LATEST_POPULAR_EPISODES_LOAD_MORE_RESPONSE,
   ANIMIXPLAY_LATEST_SUBBED_EPISODES_RESPONSE,
+  ANIMIXPLAY_EPISODE_HTML_RESPONSE,
 } from 'api/animixplay.mock';
 
 const defaultEpisodeReleaseDateAndTime = '3020-05-06 00:00:00';
@@ -64,3 +65,7 @@ export const fetchPopularEpisodes = jest.fn(({isLoadMore = false} = {}) => {
     ANIMIXPLAY_LATEST_POPULAR_EPISODES_INITIAL_RESPONSE.data,
   );
 });
+
+export const fetchEpisodeHtml = jest.fn(() =>
+  Promise.resolve(ANIMIXPLAY_EPISODE_HTML_RESPONSE.data),
+);
