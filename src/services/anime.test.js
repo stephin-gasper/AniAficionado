@@ -1,8 +1,19 @@
 import * as cheerio from 'cheerio';
-import {fetchHomepageHtml, fetchLatestSubbedEpisodes} from 'api/animixplay';
-import {ANIMIXPLAY_HOMEPAGE_HTML_RESPONSE} from 'api/animixplay.mock';
+import {
+  fetchHomepageHtml,
+  fetchLatestSubbedEpisodes,
+  fetchEpisodeHtml,
+} from 'api/animixplay';
+import {
+  ANIMIXPLAY_HOMEPAGE_HTML_RESPONSE,
+  ANIMIXPLAY_EPISODE_HTML_RESPONSE,
+} from 'api/animixplay.mock';
 
-import {getInitialLatestSubbedEpisodes, getLatestSubbedEpisodes} from './anime';
+import {
+  getInitialLatestSubbedEpisodes,
+  getLatestSubbedEpisodes,
+  getEpisodeData,
+} from './anime';
 import {
   INITIAL_LATEST_SUBBED_EPISODES_RESPONSE,
   LATEST_SUBBED_EPISODES_RESPONSE,
@@ -11,7 +22,7 @@ import {
 jest.mock('api/animixplay');
 
 describe('tests for anime related functions', () => {
-  describe('tests for getInitialLatestSubbedEpisodes', () => {
+  describe('getInitialLatestSubbedEpisodes function', () => {
     beforeAll(() => {
       jest
         .spyOn(Date, 'now')
@@ -54,7 +65,7 @@ describe('tests for anime related functions', () => {
     });
   });
 
-  describe('tests for getLatestSubbedEpisodes', () => {
+  describe('getLatestSubbedEpisodes function', () => {
     beforeAll(() => {
       jest
         .spyOn(Date, 'now')
@@ -81,6 +92,46 @@ describe('tests for anime related functions', () => {
         Error('No response'),
       );
       expect(fetchLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('getEpisodeData function', () => {
+    const path = '/v1/example-episode-1';
+    it('should make fetchEpisodeHtml call and return response object', async () => {
+      const loadSpy = jest.spyOn(cheerio, 'load');
+      await expect(getEpisodeData(path)).resolves.toStrictEqual({});
+      expect(fetchEpisodeHtml).toHaveBeenCalledTimes(1);
+      expect(fetchEpisodeHtml).toHaveBeenCalledWith(path);
+      expect(loadSpy).toHaveBeenCalledTimes(1);
+      expect(loadSpy).toHaveBeenCalledWith(
+        ANIMIXPLAY_EPISODE_HTML_RESPONSE.data,
+        {
+          _useHtmlParser2: true,
+        },
+      );
+    });
+
+    it('should make fetchEpisodeHtml call and return empty list when html element is not found', async () => {
+      const loadSpy = jest.spyOn(cheerio, 'load');
+      fetchEpisodeHtml.mockResolvedValueOnce(`
+        <!DOCTYPE html>
+          <html lang="en">
+          <body></body>
+        </html>
+      `);
+      await expect(getEpisodeData(path)).resolves.toStrictEqual([]);
+      expect(fetchEpisodeHtml).toHaveBeenCalledTimes(1);
+      expect(loadSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('should make fetchEpisodeHtml call and return empty list when api call fails', async () => {
+      const loadSpy = jest.spyOn(cheerio, 'load');
+      fetchEpisodeHtml.mockResolvedValueOnce(null);
+      await expect(getEpisodeData(path)).rejects.toStrictEqual(
+        Error('No response'),
+      );
+      expect(fetchEpisodeHtml).toHaveBeenCalledTimes(1);
+      expect(loadSpy).toHaveBeenCalledTimes(0);
     });
   });
 });

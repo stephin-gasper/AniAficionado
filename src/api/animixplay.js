@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const animixplayBaseUrl = 'https://animixplay.to';
+// const animixplayBaseUrl = 'http://10.0.2.2:3003';
 const searchApiURL = `${animixplayBaseUrl}/api/search`;
 const timeout = 20000;
 const defaultEpisodeReleaseDateAndTime = '3020-05-06 00:00:00';
