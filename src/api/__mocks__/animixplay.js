@@ -69,3 +69,5 @@ export const fetchPopularEpisodes = jest.fn(({isLoadMore = false} = {}) => {
 export const fetchEpisodeHtml = jest.fn(() =>
   Promise.resolve(ANIMIXPLAY_EPISODE_HTML_RESPONSE.data),
 );
+
+export const getAnimixplayBaseUrl = jest.fn(() => 'https://animixplay.to');

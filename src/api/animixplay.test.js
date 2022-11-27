@@ -7,6 +7,7 @@ import {
   fetchLatestSubbedEpisodes,
   fetchPopularEpisodes,
   fetchEpisodeHtml,
+  getAnimixplayBaseUrl,
 } from './animixplay';
 import {
   ANIMIXPLAY_ALL_RECENT_EPISODES_INITIAL_RESPONSE,
@@ -243,5 +244,9 @@ describe('tests for animixplay related apis', () => {
     expect(mockAxiosGet).toHaveBeenCalledWith(`${animixplayBaseUrl}${path}`, {
       timeout,
     });
+  });
+
+  it('should return base url', () => {
+    expect(getAnimixplayBaseUrl()).toBe('https://animixplay.to');
   });
 });

@@ -5,6 +5,8 @@ const searchApiURL = `${animixplayBaseUrl}/api/search`;
 const timeout = 20000;
 const defaultEpisodeReleaseDateAndTime = '3020-05-06 00:00:00';
 
+export const getAnimixplayBaseUrl = () => animixplayBaseUrl;
+
 const makeGetRequest = async url => {
   try {
     const {data: dataFromResponse} = await axios.get(url, {
