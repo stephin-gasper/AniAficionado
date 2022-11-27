@@ -3,10 +3,19 @@ import {
   LATEST_SUBBED_EPISODES_RESPONSE,
 } from 'services/anime.mock';
 
-export const getInitialLatestSubbedEpisodes = jest.fn(() =>
+export const mockGetInitialLatestSubbedEpisodes = jest.fn(() =>
   Promise.resolve(INITIAL_LATEST_SUBBED_EPISODES_RESPONSE),
 );
 
-export const getLatestSubbedEpisodes = jest.fn(() =>
+export const mockGetLatestSubbedEpisodes = jest.fn(() =>
   Promise.resolve(LATEST_SUBBED_EPISODES_RESPONSE),
 );
+
+const anime = jest.fn().mockImplementation(() => {
+  return {
+    getInitialLatestSubbedEpisodes: mockGetInitialLatestSubbedEpisodes,
+    getLatestSubbedEpisodes: mockGetLatestSubbedEpisodes,
+  };
+});
+
+export default anime;
