@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Home /> tests for initial subbed episodes load should render correctly 1`] = `
-<View
+<RCTSafeAreaView
   style={
     [
       {
@@ -9,101 +9,124 @@ exports[`<Home /> tests for initial subbed episodes load should render correctly
         "flexBasis": 0,
         "flexGrow": 1,
         "flexShrink": 1,
-        "paddingBottom": 0,
-        "paddingLeft": 10,
-        "paddingRight": 10,
-        "paddingTop": 5,
       },
     ]
   }
 >
   <RCTScrollView
+    contentContainerStyle={
+      {
+        "flexGrow": 1,
+      }
+    }
     showsVerticalScrollIndicator={false}
+    style={
+      {
+        "flex": 1,
+      }
+    }
     testID="scrollView"
   >
     <View>
       <View
-        list={
-          [
-            "Sub",
-            "Dub",
-            "All",
-            "Popular",
-            "Movies",
-          ]
-        }
-        onPillPress={[Function]}
-        testID="pills"
-      />
-      <View
         style={
           [
             {
-              "flexDirection": "row",
-              "flexWrap": "wrap",
-              "marginBottom": 0,
-              "marginLeft": -2.5,
-              "marginRight": -2.5,
-              "marginTop": 0,
+              "flexGrow": 1,
+              "paddingBottom": 0,
+              "paddingLeft": 10,
+              "paddingRight": 10,
+              "paddingTop": 5,
             },
           ]
         }
-        testID="cardWrapper"
       >
+        <View>
+          <View
+            list={
+              [
+                "Sub",
+                "Dub",
+                "All",
+                "Popular",
+                "Movies",
+              ]
+            }
+            onPillPress={[Function]}
+            testID="pills"
+          />
+        </View>
         <View
-          id="/v1/boruto-naruto-next-generations/ep267"
-          imageUrl="https://cdn.animixplay.to/i/2b749c9e3e272f2cf4b4f019ffe6c252.jpg"
-          latestEpisodeNumber="267"
-          rating="5.78"
-          releaseTime="14 hours ago"
-          testID="animeCard"
-          title="Boruto: Naruto Next Generations"
-          totalEpisodes="?"
-        />
-        <View
-          id="/v1/one-piece/ep1033"
-          imageUrl="https://cdn.animixplay.to/i/73059c39fee46b7c378a3aa0bdd9b6a2.jpg"
-          latestEpisodeNumber="1033"
-          rating="8.67"
-          releaseTime="21 hours ago"
-          testID="animeCard"
-          title="One Piece"
-          totalEpisodes="?"
-        />
-        <View
-          id="/v1/kakkou-no-iinazuke/ep21"
-          imageUrl="https://cdn.animixplay.to/i/41adf097b26cf486c64da6ada76adac2.jpg"
-          latestEpisodeNumber="21"
-          rating="?"
-          releaseTime="1 day ago"
-          testID="animeCard"
-          title="A Couple of Cuckoos"
-          totalEpisodes="24"
-        />
-      </View>
-      <View
-        iconComponent={[Function]}
-        iconName="chevron-down"
-        iconSize={22}
-        onPress={[Function]}
-        style={
-          {
-            "paddingBottom": 10.5,
-            "paddingLeft": 20,
-            "paddingTop": 10.5,
+          style={
+            [
+              {
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "marginBottom": 0,
+                "marginLeft": -2.5,
+                "marginRight": -2.5,
+                "marginTop": 0,
+              },
+            ]
           }
-        }
-        testID="showMoreResultsButton"
-      >
-        Show more results
+          testID="cardWrapper"
+        >
+          <View
+            id="/v1/boruto-naruto-next-generations/ep267"
+            imageUrl="https://cdn.animixplay.to/i/2b749c9e3e272f2cf4b4f019ffe6c252.jpg"
+            latestEpisodeNumber="267"
+            rating="5.78"
+            releaseTime="14 hours ago"
+            testID="animeCard"
+            title="Boruto: Naruto Next Generations"
+            totalEpisodes="?"
+          />
+          <View
+            id="/v1/one-piece/ep1033"
+            imageUrl="https://cdn.animixplay.to/i/73059c39fee46b7c378a3aa0bdd9b6a2.jpg"
+            latestEpisodeNumber="1033"
+            rating="8.67"
+            releaseTime="21 hours ago"
+            testID="animeCard"
+            title="One Piece"
+            totalEpisodes="?"
+          />
+          <View
+            id="/v1/kakkou-no-iinazuke/ep21"
+            imageUrl="https://cdn.animixplay.to/i/41adf097b26cf486c64da6ada76adac2.jpg"
+            latestEpisodeNumber="21"
+            rating="?"
+            releaseTime="1 day ago"
+            testID="animeCard"
+            title="A Couple of Cuckoos"
+            totalEpisodes="24"
+          />
+        </View>
+        <View
+          iconComponent={[Function]}
+          iconName="chevron-down"
+          iconSize={22}
+          onPress={[Function]}
+          style={
+            {
+              "marginBottom": 20,
+              "paddingBottom": 10.5,
+              "paddingLeft": 20,
+              "paddingTop": 10.5,
+            }
+          }
+          testID="showMoreResultsButton"
+        >
+          Show more results
+        </View>
       </View>
     </View>
   </RCTScrollView>
-</View>
+</RCTSafeAreaView>
 `;
 
 exports[`<Home /> tests for loading more latest subbed animes should call getLatestSubbedEpisodes when show more results button is clicked 1`] = `
-<View
+<RCTSafeAreaView
   style={
     [
       {
@@ -111,125 +134,148 @@ exports[`<Home /> tests for loading more latest subbed animes should call getLat
         "flexBasis": 0,
         "flexGrow": 1,
         "flexShrink": 1,
-        "paddingBottom": 0,
-        "paddingLeft": 10,
-        "paddingRight": 10,
-        "paddingTop": 5,
       },
     ]
   }
 >
   <RCTScrollView
+    contentContainerStyle={
+      {
+        "flexGrow": 1,
+      }
+    }
     showsVerticalScrollIndicator={false}
+    style={
+      {
+        "flex": 1,
+      }
+    }
     testID="scrollView"
   >
     <View>
       <View
-        list={
-          [
-            "Sub",
-            "Dub",
-            "All",
-            "Popular",
-            "Movies",
-          ]
-        }
-        onPillPress={[Function]}
-        testID="pills"
-      />
-      <View
         style={
           [
             {
-              "flexDirection": "row",
-              "flexWrap": "wrap",
-              "marginBottom": 0,
-              "marginLeft": -2.5,
-              "marginRight": -2.5,
-              "marginTop": 0,
+              "flexGrow": 1,
+              "paddingBottom": 0,
+              "paddingLeft": 10,
+              "paddingRight": 10,
+              "paddingTop": 5,
             },
           ]
         }
-        testID="cardWrapper"
       >
+        <View>
+          <View
+            list={
+              [
+                "Sub",
+                "Dub",
+                "All",
+                "Popular",
+                "Movies",
+              ]
+            }
+            onPillPress={[Function]}
+            testID="pills"
+          />
+        </View>
         <View
-          id="/v1/boruto-naruto-next-generations/ep267"
-          imageUrl="https://cdn.animixplay.to/i/2b749c9e3e272f2cf4b4f019ffe6c252.jpg"
-          latestEpisodeNumber="267"
-          rating="5.78"
-          releaseTime="14 hours ago"
-          testID="animeCard"
-          title="Boruto: Naruto Next Generations"
-          totalEpisodes="?"
-        />
-        <View
-          id="/v1/one-piece/ep1033"
-          imageUrl="https://cdn.animixplay.to/i/73059c39fee46b7c378a3aa0bdd9b6a2.jpg"
-          latestEpisodeNumber="1033"
-          rating="8.67"
-          releaseTime="21 hours ago"
-          testID="animeCard"
-          title="One Piece"
-          totalEpisodes="?"
-        />
-        <View
-          id="/v1/kakkou-no-iinazuke/ep21"
-          imageUrl="https://cdn.animixplay.to/i/41adf097b26cf486c64da6ada76adac2.jpg"
-          latestEpisodeNumber="21"
-          rating="?"
-          releaseTime="1 day ago"
-          testID="animeCard"
-          title="A Couple of Cuckoos"
-          totalEpisodes="24"
-        />
-        <View
-          id="/v1/poputepipikku-2nd-season/ep2"
-          imageUrl="https://cdn.animixplay.to/min/mal/1237/128067.jpg"
-          latestEpisodeNumber="2"
-          rating="7.25"
-          releaseTime="1 month ago"
-          testID="animeCard"
-          title="Pop Team Epic Season 2"
-          totalEpisodes="12"
-        />
-        <View
-          id="/v1/berserk-ougon-jidai-hen-memorial-edition/ep2"
-          imageUrl="https://cdn.animixplay.to/i/1321b74296956451a9be2f8eb05aaa10.jpg"
-          latestEpisodeNumber="2"
-          rating="7.62"
-          releaseTime="1 month ago"
-          testID="animeCard"
-          title="Berserk: The Golden Age Arc - Memorial Edition"
-          totalEpisodes="?"
-        />
-        <View
-          id="/v1/ani-ni-tsukeru-kusuri-wa-nai-5/ep11"
-          imageUrl="https://cdn.animixplay.to/i/b138226a737f622fdd885b8066cb0123.jpg"
-          latestEpisodeNumber="11"
-          rating="7.07"
-          releaseTime="1 month ago"
-          testID="animeCard"
-          title="Ani ni Tsukeru Kusuri wa Nai! 5"
-          totalEpisodes="12"
-        />
-      </View>
-      <View
-        iconComponent={[Function]}
-        iconName="chevron-down"
-        iconSize={22}
-        onPress={[Function]}
-        style={
-          {
-            "paddingBottom": 10.5,
-            "paddingLeft": 20,
-            "paddingTop": 10.5,
+          style={
+            [
+              {
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "marginBottom": 0,
+                "marginLeft": -2.5,
+                "marginRight": -2.5,
+                "marginTop": 0,
+              },
+            ]
           }
-        }
-        testID="showMoreResultsButton"
-      >
-        Show more results
+          testID="cardWrapper"
+        >
+          <View
+            id="/v1/boruto-naruto-next-generations/ep267"
+            imageUrl="https://cdn.animixplay.to/i/2b749c9e3e272f2cf4b4f019ffe6c252.jpg"
+            latestEpisodeNumber="267"
+            rating="5.78"
+            releaseTime="14 hours ago"
+            testID="animeCard"
+            title="Boruto: Naruto Next Generations"
+            totalEpisodes="?"
+          />
+          <View
+            id="/v1/one-piece/ep1033"
+            imageUrl="https://cdn.animixplay.to/i/73059c39fee46b7c378a3aa0bdd9b6a2.jpg"
+            latestEpisodeNumber="1033"
+            rating="8.67"
+            releaseTime="21 hours ago"
+            testID="animeCard"
+            title="One Piece"
+            totalEpisodes="?"
+          />
+          <View
+            id="/v1/kakkou-no-iinazuke/ep21"
+            imageUrl="https://cdn.animixplay.to/i/41adf097b26cf486c64da6ada76adac2.jpg"
+            latestEpisodeNumber="21"
+            rating="?"
+            releaseTime="1 day ago"
+            testID="animeCard"
+            title="A Couple of Cuckoos"
+            totalEpisodes="24"
+          />
+          <View
+            id="/v1/poputepipikku-2nd-season/ep2"
+            imageUrl="https://cdn.animixplay.to/min/mal/1237/128067.jpg"
+            latestEpisodeNumber="2"
+            rating="7.25"
+            releaseTime="1 month ago"
+            testID="animeCard"
+            title="Pop Team Epic Season 2"
+            totalEpisodes="12"
+          />
+          <View
+            id="/v1/berserk-ougon-jidai-hen-memorial-edition/ep2"
+            imageUrl="https://cdn.animixplay.to/i/1321b74296956451a9be2f8eb05aaa10.jpg"
+            latestEpisodeNumber="2"
+            rating="7.62"
+            releaseTime="1 month ago"
+            testID="animeCard"
+            title="Berserk: The Golden Age Arc - Memorial Edition"
+            totalEpisodes="?"
+          />
+          <View
+            id="/v1/ani-ni-tsukeru-kusuri-wa-nai-5/ep11"
+            imageUrl="https://cdn.animixplay.to/i/b138226a737f622fdd885b8066cb0123.jpg"
+            latestEpisodeNumber="11"
+            rating="7.07"
+            releaseTime="1 month ago"
+            testID="animeCard"
+            title="Ani ni Tsukeru Kusuri wa Nai! 5"
+            totalEpisodes="12"
+          />
+        </View>
+        <View
+          iconComponent={[Function]}
+          iconName="chevron-down"
+          iconSize={22}
+          onPress={[Function]}
+          style={
+            {
+              "marginBottom": 20,
+              "paddingBottom": 10.5,
+              "paddingLeft": 20,
+              "paddingTop": 10.5,
+            }
+          }
+          testID="showMoreResultsButton"
+        >
+          Show more results
+        </View>
       </View>
     </View>
   </RCTScrollView>
-</View>
+</RCTSafeAreaView>
 `;

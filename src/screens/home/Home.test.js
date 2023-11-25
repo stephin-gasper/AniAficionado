@@ -33,19 +33,19 @@ jest.mock('./cards', () => props => <MockView testID="animeCard" {...props} />);
 
 describe('<Home />', () => {
   it('should cancel interaction manager on unmount', async () => {
-    render(<Home />);
-
     const mockCancel = jest.fn();
     jest
       .spyOn(InteractionManager, 'runAfterInteractions')
       .mockReturnValueOnce({cancel: () => mockCancel()});
-    let useFocusEffectCallbackInstance = jest.fn();
+    // let useFocusEffectCallbackInstance = jest.fn();
+    const {rerender, unmount} = render(<Home />);
+
     await act(async () => {
-      useFocusEffectCallbackInstance = mockUseFocusEffect.mock.calls[0][0]();
+      rerender(<Home />);
     });
 
     await act(async () => {
-      useFocusEffectCallbackInstance();
+      unmount();
     });
 
     expect(mockCancel).toHaveBeenCalledTimes(1);
@@ -53,22 +53,22 @@ describe('<Home />', () => {
 
   describe('tests for initial subbed episodes load', () => {
     it('should render correctly', async () => {
-      const container = render(<Home />);
+      const {rerender, toJSON} = await render(<Home />);
 
       await act(async () => {
-        mockUseFocusEffect.mock.calls[0][0]();
+        rerender(<Home />);
       });
 
       expect(Anime).toHaveBeenCalledTimes(1);
-      expect(container).toMatchSnapshot();
+      expect(toJSON()).toMatchSnapshot();
       expect(mockGetInitialLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
     });
 
     it('should call api to get latest anime episodes', async () => {
-      const {getAllByTestId} = render(<Home />);
+      const {rerender, getAllByTestId} = await render(<Home />);
 
       await act(async () => {
-        mockUseFocusEffect.mock.calls[0][0]();
+        rerender(<Home />);
       });
 
       expect(getAllByTestId('animeCard')).toHaveLength(3);
@@ -78,11 +78,11 @@ describe('<Home />', () => {
     });
 
     it('should show some text when api return empty response', async () => {
-      const {getByTestId} = render(<Home />);
+      const {rerender, getByTestId} = render(<Home />);
 
       mockGetInitialLatestSubbedEpisodes.mockResolvedValueOnce([]);
       await act(async () => {
-        mockUseFocusEffect.mock.calls[0][0]();
+        rerender(<Home />);
       });
 
       expect(getByTestId('noResponseText').props.children).toBe(
@@ -91,8 +91,8 @@ describe('<Home />', () => {
       expect(mockGetInitialLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
     });
 
-    it('should spinner until api responds', async () => {
-      const {getByTestId, queryByTestId} = render(<Home />);
+    it('should show spinner until api responds', async () => {
+      const {rerender, getByTestId, queryByTestId} = render(<Home />);
 
       expect(getByTestId('spinner')).toBeDefined();
       expect(queryByTestId('cardWrapper')).toBeNull();
@@ -100,7 +100,7 @@ describe('<Home />', () => {
       expect(queryByTestId('pills')).toBeNull();
 
       await act(async () => {
-        mockUseFocusEffect.mock.calls[0][0]();
+        rerender(<Home />);
       });
 
       expect(queryByTestId('spinner')).toBeNull();
@@ -108,35 +108,17 @@ describe('<Home />', () => {
       expect(getByTestId('scrollView')).toBeDefined();
       expect(getByTestId('pills')).toBeDefined();
       expect(mockGetInitialLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
-
-      let promiseResolver;
-      mockGetInitialLatestSubbedEpisodes.mockReturnValueOnce(
-        new Promise(resolve => {
-          promiseResolver = resolve;
-        }),
-      );
-
-      await act(async () => {
-        mockUseFocusEffect.mock.calls[0][0]();
-      });
-
-      expect(getByTestId('spinner')).toBeDefined();
-
-      await act(async () => {
-        await promiseResolver({list: [], canLoadMoreResults: false});
-      });
-
-      expect(queryByTestId('spinner')).toBeNull();
     });
   });
 
   describe('tests for loading more latest subbed animes', () => {
     it('should call getLatestSubbedEpisodes when show more results button is clicked', async () => {
-      const container = render(<Home />);
-      const {getAllByTestId, getByTestId} = container;
+      const {rerender, getAllByTestId, getByTestId, toJSON} = await render(
+        <Home />,
+      );
 
       await act(async () => {
-        mockUseFocusEffect.mock.calls[0][0]();
+        rerender(<Home />);
       });
 
       expect(getAllByTestId('animeCard')).toHaveLength(3);
@@ -149,14 +131,15 @@ describe('<Home />', () => {
       expect(Anime).toHaveBeenCalledTimes(1);
       expect(mockGetLatestSubbedEpisodes).toHaveBeenCalledTimes(1);
       expect(mockGetLatestSubbedEpisodes).toHaveBeenCalledWith();
-      expect(container).toMatchSnapshot();
+      expect(toJSON()).toMatchSnapshot();
     });
 
     it('should hide show more results button when getLatestSubbedEpisodes responds with canLoadMoreResults:false', async () => {
-      const {getAllByTestId, getByTestId, queryByTestId} = render(<Home />);
+      const {rerender, getAllByTestId, getByTestId, queryByTestId} =
+        await render(<Home />);
 
       await act(async () => {
-        mockUseFocusEffect.mock.calls[0][0]();
+        rerender(<Home />);
       });
 
       mockGetLatestSubbedEpisodes.mockResolvedValueOnce({
@@ -172,10 +155,10 @@ describe('<Home />', () => {
     });
 
     it('should loader text until api responds', async () => {
-      const {getByTestId, queryByTestId} = render(<Home />);
+      const {rerender, getByTestId, queryByTestId} = await render(<Home />);
 
       await act(async () => {
-        mockUseFocusEffect.mock.calls[0][0]();
+        rerender(<Home />);
       });
 
       expect(queryByTestId('spinner')).toBeNull();

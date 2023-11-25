@@ -1,14 +1,13 @@
-import React, {useCallback, useRef, useState} from 'react';
-import {InteractionManager, Text, ScrollView} from 'react-native';
-import {useFocusEffect} from '@react-navigation/native';
+import React, {useRef, useState, useEffect} from 'react';
+import {InteractionManager, Text, ScrollView, View} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Anime from 'services/anime';
 import Pills from 'components/pills/Pills';
 import Button from 'components/button/Button';
 import Spinner from 'components/spinner/Spinner';
 
-import Cards from './cards';
-import {CardWrapper, Container} from './Home.style';
+import Card from './cards';
+import {CardWrapper, Container, ContentWrapper, styles} from './Home.style';
 
 const pillsList = ['Sub', 'Dub', 'All', 'Popular', 'Movies'];
 
@@ -32,55 +31,57 @@ const Home = () => {
       });
   };
 
-  useFocusEffect(
-    useCallback(() => {
-      const task = InteractionManager.runAfterInteractions(() => {
-        setShowLoader(true);
-        anime.current = new Anime();
-        anime.current.getInitialLatestSubbedEpisodes().then(data => {
-          setLatestEpisodes(data);
-          setShowLoader(false);
-        });
+  useEffect(() => {
+    const task = InteractionManager.runAfterInteractions(() => {
+      setShowLoader(true);
+      anime.current = new Anime();
+      anime.current.getInitialLatestSubbedEpisodes().then(data => {
+        setLatestEpisodes(data);
+        setShowLoader(false);
       });
+    });
 
-      return () => task.cancel();
-    }, []),
-  );
+    return () => task.cancel();
+  }, []);
 
   return (
     <Container>
       <If condition={latestEpisodes}>
-        <ScrollView testID="scrollView" showsVerticalScrollIndicator={false}>
-          <Pills list={pillsList} onPillPress={() => {}} />
-          <Choose>
-            <When condition={latestEpisodes.length > 0}>
-              <CardWrapper testID="cardWrapper">
-                <For each="item" of={latestEpisodes}>
-                  <Cards key={item.id} {...item} />
-                </For>
-              </CardWrapper>
-              <If condition={showMoreResultsButton}>
-                <Button
-                  testID="showMoreResultsButton"
-                  onPress={showMoreResultsOnPress}
-                  iconName="chevron-down"
-                  iconComponent={MaterialCommunityIcons}
-                  iconSize={22}
-                  style={{
-                    paddingLeft: 20,
-                    paddingTop: 10.5,
-                    paddingBottom: 10.5,
-                  }}>
-                  Show more results
-                </Button>
-              </If>
-            </When>
-            <Otherwise>
-              <Text testID="noResponseText">
-                No anime&apos;s to show, please retry
-              </Text>
-            </Otherwise>
-          </Choose>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.scrollViewContent}
+          testID="scrollView"
+          showsVerticalScrollIndicator={false}>
+          <ContentWrapper>
+            <View>
+              <Pills list={pillsList} onPillPress={() => {}} />
+            </View>
+            <Choose>
+              <When condition={latestEpisodes.length > 0}>
+                <CardWrapper testID="cardWrapper">
+                  <For each="item" index="idx" of={latestEpisodes}>
+                    <Card key={item.id} {...item} />
+                  </For>
+                </CardWrapper>
+                <If condition={showMoreResultsButton}>
+                  <Button
+                    testID="showMoreResultsButton"
+                    onPress={showMoreResultsOnPress}
+                    iconName="chevron-down"
+                    iconComponent={MaterialCommunityIcons}
+                    iconSize={22}
+                    style={styles.showMoreResultButton}>
+                    Show more results
+                  </Button>
+                </If>
+              </When>
+              <Otherwise>
+                <Text testID="noResponseText">
+                  No anime&apos;s to show, please retry
+                </Text>
+              </Otherwise>
+            </Choose>
+          </ContentWrapper>
         </ScrollView>
       </If>
       <If condition={showLoader}>
