@@ -45,6 +45,8 @@ Animixplay has been shutdown (since 21st Dec, 2022) so had dropped working on ac
 
 <img src="https://i.postimg.cc/g2KzdXfR/Screenshot-1700912747.png" />
 
+### Gif
+Link - https://imgpile.com/images/GoFpzW.gif 
 <img src="https://imgpile.com/images/GoFpzW.gif" />
 
 ## Tech Stack
