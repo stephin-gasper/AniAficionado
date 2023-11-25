@@ -1,8 +1,13 @@
 # AniAficionado
 
-A simple app for all anime aficionado's. It's an unofficial app for [animepahe](https://animepahe.com/) to stream your favorite anime.
+A simple app for all anime aficionado's. It's an unofficial app for [animixplay](https://animixplay.to/) to stream your favorite anime.
 
 The project is still in its infancy and will be adding further features later on, you can check the roadmap below for future plans.
+
+## Note
+
+**Update(25th Nov, 2023)**
+Animixplay has been shutdown (since 21st Dec, 2022) so had dropped working on active development on this project. Will be pushing all the work done till now (which are incomplete in implementation and some missing/incomplete test files) and will be picking up the project when I get free time and find suitable alternative website.
 
 ## Features roadmap
 
@@ -32,6 +37,16 @@ The project is still in its infancy and will be adding further features later on
 
 - [ ] Create iOS app
 
+## Screenshots
+
+### Home screen
+
+<img src="https://i.postimg.cc/26Kgrrkn/Screenshot-1700911787.png" />
+
+<img src="https://i.postimg.cc/g2KzdXfR/Screenshot-1700912747.png" />
+
+<img src="https://pouch.jumpshare.com/preview/dHRtONIUvWSTWjyKgm9BZjCrZ6pU2cq-nFZvP4rzx_9VmjGqn_4nKq7hX90ljOy2rXUKTDRTVrLrqtAOksnfbMrzgr2RKl80RwHp62zVClI" />
+
 ## Tech Stack
 
 - [React native](https://github.com/facebook/react-native)
@@ -44,7 +59,7 @@ The project is still in its infancy and will be adding further features later on
 
 ### API details
 
-- [Animepahe api](https://animepahe.com/)
+- [Animixplay api](https://animixplay.to/)
 
 #### API checklist
 
@@ -60,4 +75,3 @@ The project is still in its infancy and will be adding further features later on
 
 - Setup react native by following this link: https://reactnative.dev/docs/environment-setup
 - Run following commands in terminal - 'yarn start' and then 'yarn android' in another terminal.
-- You can check the sample WIP debug apk in following link - https://appsenjoy.com/vxLhm
