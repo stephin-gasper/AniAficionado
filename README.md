@@ -45,7 +45,7 @@ Animixplay has been shutdown (since 21st Dec, 2022) so had dropped working on ac
 
 <img src="https://i.postimg.cc/g2KzdXfR/Screenshot-1700912747.png" />
 
-<img src="https://pouch.jumpshare.com/preview/dHRtONIUvWSTWjyKgm9BZjCrZ6pU2cq-nFZvP4rzx_9VmjGqn_4nKq7hX90ljOy2rXUKTDRTVrLrqtAOksnfbMrzgr2RKl80RwHp62zVClI" />
+<img src="https://imgpile.com/images/GoFpzW.gif" />
 
 ## Tech Stack
 
@@ -75,3 +75,12 @@ Animixplay has been shutdown (since 21st Dec, 2022) so had dropped working on ac
 
 - Setup react native by following this link: https://reactnative.dev/docs/environment-setup
 - Run following commands in terminal - 'yarn start' and then 'yarn android' in another terminal.
+
+## Using mock data to check app demo
+
+- Download [Mockoon](https://mockoon.com/)
+- Create json files after coping the json from links
+  - [Jikan.json](https://www.npoint.io/docs/3c3e1039d3a4237d48ad)
+  - [Animiplay.json](https://www.npoint.io/docs/9b45d342305e7631ba88)
+- Open mentioned json files after clicking on File -> open environment
+- Point base url for animixplay in api/animixplay.js as http://10.0.2.2:3003 and for jikan in api/jikan as http://10.0.2.2:3002/v4
