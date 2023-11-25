@@ -5,7 +5,10 @@ import FastImage from 'react-native-fast-image';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {useTheme} from 'styled-components/native';
+import {useNavigation} from '@react-navigation/native';
+
 import getRatingColorKey from 'utils/getRatingColorKey';
+import {EPISODE} from 'constants/route';
 
 import {
   EpisodeNumber,
@@ -22,6 +25,7 @@ import {
 } from './Cards.style';
 
 const Cards = ({
+  id,
   imageUrl,
   title,
   rating,
@@ -30,12 +34,20 @@ const Cards = ({
   releaseTime,
 }) => {
   const theme = useTheme();
+  const navigation = useNavigation();
 
   const ratingColorKey = useMemo(() => getRatingColorKey(rating), [rating]);
 
+  const onCardPress = () => {
+    navigation.navigate(EPISODE, {
+      path: id,
+      episodeNumber: latestEpisodeNumber,
+    });
+  };
+
   return (
     <Wrapper>
-      <InnerWrapper>
+      <InnerWrapper activeOpacity={0.5} onPress={onCardPress}>
         <View>
           <FastImage
             source={{
@@ -78,6 +90,7 @@ const Cards = ({
 };
 
 Cards.propTypes = {
+  id: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   rating: PropTypes.string.isRequired,

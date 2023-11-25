@@ -9,11 +9,11 @@ export const Wrapper = styled.View`
   padding: 0 2.5px;
 `;
 
-export const InnerWrapper = styled.View`
+export const InnerWrapper = styled.TouchableOpacity`
   background-color: ${props => props.theme.secondaryColor};
   border: 1px solid ${props => props.theme.secondaryColor};
   border-radius: ${borderRadiusValue}px;
-  flex: 1;
+  flex-grow: 1;
 `;
 
 export const FeaturedImageOverlay = styled.View`
@@ -58,7 +58,7 @@ export const EpisodeNumber = styled(TagText)``;
 
 export const Details = styled.View`
   padding: 5px 4px;
-  flex: 1;
+  flex-grow: 1;
   justify-content: space-between;
 `;
 
