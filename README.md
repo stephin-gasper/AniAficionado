@@ -11,9 +11,9 @@ Animixplay has been shutdown (since 21st Dec, 2022) so had dropped working on ac
 
 ## Features roadmap
 
-- [ ] Home screen - Check latest episodes of recent animes
-  - [ ] Implement functional base UI
-  - [ ] Implement design
+- [x] Home screen - Check latest episodes of recent animes
+  - [x] Implement functional base UI
+  - [x] Implement design
 - [ ] Anime details screen - Get details for the selected anime
   - [ ] Implement functional base UI
   - [ ] Implement design
