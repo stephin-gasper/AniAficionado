@@ -41,13 +41,13 @@ Animixplay has been shutdown (since 21st Dec, 2022) so had dropped working on ac
 
 ### Home screen
 
-<img src="https://i.postimg.cc/26Kgrrkn/Screenshot-1700911787.png" />
+![Screen 1](https://i.postimg.cc/26Kgrrkn/Screenshot-1700911787.png)
 
-<img src="https://i.postimg.cc/g2KzdXfR/Screenshot-1700912747.png" />
+![Screen 2](https://i.postimg.cc/g2KzdXfR/Screenshot-1700912747.png)
 
-### Gif
-Link - https://imgpile.com/images/GoFpzW.gif 
-<img src="https://imgpile.com/images/GoFpzW.gif" />
+### Demo
+
+![Demo](/demo.webp)
 
 ## Tech Stack
 
@@ -75,7 +75,7 @@ Link - https://imgpile.com/images/GoFpzW.gif
 
 ## How to run the app
 
-- Setup react native by following this link: https://reactnative.dev/docs/environment-setup
+- Setup react native by following this link: <https://reactnative.dev/docs/environment-setup>
 - Run following commands in terminal - 'yarn start' and then 'yarn android' in another terminal.
 
 ## Using mock data to check app demo
@@ -85,4 +85,4 @@ Link - https://imgpile.com/images/GoFpzW.gif
   - [Jikan.json](https://www.npoint.io/docs/3c3e1039d3a4237d48ad)
   - [Animiplay.json](https://www.npoint.io/docs/9b45d342305e7631ba88)
 - Open mentioned json files after clicking on File -> open environment
-- Point base url for animixplay in api/animixplay.js as http://10.0.2.2:3003 and for jikan in api/jikan as http://10.0.2.2:3002/v4
+- Point base url for animixplay in api/animixplay.js as <http://10.0.2.2:3003> and for jikan in api/jikan as <http://10.0.2.2:3002/v4>
