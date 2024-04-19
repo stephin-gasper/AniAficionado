@@ -41,9 +41,9 @@ Animixplay has been shutdown (since 21st Dec, 2022) so had dropped working on ac
 
 ### Home screen
 
-![Screen 1](https://i.postimg.cc/26Kgrrkn/Screenshot-1700911787.png)
+![Screen 1](https://i.ibb.co/gRg0qF5/home-1.png)
 
-![Screen 2](https://i.postimg.cc/g2KzdXfR/Screenshot-1700912747.png)
+![Screen 2](https://i.ibb.co/CvMdxyT/home-2.png)
 
 ### Demo
 
